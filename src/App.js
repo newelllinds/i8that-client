@@ -1,9 +1,12 @@
+import React from 'react';
 import './App.css';
+import DietlogCreate from './dietlog/DietlogCreate'
+
 
 function App() {
   return (
     <div>
-      <h3>Perla</h3>
+      <DietlogCreate/>
     </div>
   );
 }
