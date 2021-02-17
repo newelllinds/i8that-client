@@ -12,7 +12,8 @@ const DietLogEdit = (props) => {
     const dietLogUpdate = (event, dietlog) => {
         event.preventDefault();
         console.log(editFoodItem, editCalories, editDateEaten, editWhereEaten, editFeelings, editImage, props.dietLogToUpdate.id);
-        fetch(`http://localhost:3000/log/${props.dietLogToUpdate.id}`, {
+        // fetch(`http://localhost:3000/dietlog/${props.dietLogToUpdate.id}`, {
+        fetch('http://localhost:3000/dietlog/update/2'), {
             method: 'PUT',
             body: JSON.stringify({food_item: editFoodItem, calories: editCalories, date_eaten: editDateEaten, where_eaten: editWhereEaten, feelings: editFeelings, image: editImage}),
             headers: new Headers({
