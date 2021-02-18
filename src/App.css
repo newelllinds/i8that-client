@@ -36,3 +36,64 @@
     transform: rotate(360deg);
   }
 }
+
+.jumbotron {
+  height: 300px;
+  width: 100%;
+      padding-top: 100%;
+      padding-bottom: 20%;
+    }
+
+    .bar {
+      height: 30px;
+      width: 100%;
+      background-color:orange;
+      margin-top: -40px;
+      margin-bottom: 60px;
+    }
+
+    .h6{
+      margin-top: -200px !important;
+    }
+
+    .createtable{
+      border:1px;
+    }
+
+    .btncolor{
+      background-color: orange !important;
+      color: black !important;
+    }
+
+    .logo{
+      width: 290px;
+      margin-top:-40px;
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .text-center{
+      margin-top: 20px;
+      margin-bottom:20px;
+    }
+
+    .tablecreate{
+      width: 80%;
+      margin: auto;
+      background-color:#e4e9f5;      
+      border-radius: 20px;
+
+    }
+
+    .innertcreate{
+      width: 90%;
+      margin: auto;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+
+
