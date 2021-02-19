@@ -45,4 +45,4 @@ const Signup = (props) => {
     //   </Form>
     // </div>
   );
-};
+export default Signup;
