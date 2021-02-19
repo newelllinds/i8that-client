@@ -8,7 +8,8 @@ const DietlogTable = (props) => {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                // 'Authorization': props.token
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNjg2MjM1LCJleHAiOjE2MTM3NzI2MzV9.xVoS6-0HVtqHx_tOYg8aX7mZX-4YkGhDvxlmlDu89ww'
             })
         }).then(() => props.fetchDietlogs())
     }
@@ -24,9 +25,10 @@ const DietlogTable = (props) => {
                     <td>{dietlog.where_eaten}</td>
                     <td>{dietlog.feelings}</td>
                     <td>{dietlog.image}</td>
-                    
-                    <Button color="warning" onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
+                    <td>
+                        <Button color="warning" onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
+                    </td>
 
                     
                 </tr>
@@ -45,6 +47,7 @@ const DietlogTable = (props) => {
             <Table>
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Foods</th>
                         <th>Calories</th>
                         <th>Date Eaten</th>

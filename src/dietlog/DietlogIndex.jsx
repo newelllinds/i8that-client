@@ -10,11 +10,12 @@ const DietlogIndex = (props) => {
     const [dietlogToUpdate, setDietlogToUpdate] = useState({});
 
     const fetchDietlogs = () => {
-        fetch('http://localhost:3000/dietlog', {
+        fetch('http://localhost:3000/dietlog/mylogs', {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNjg2MjM1LCJleHAiOjE2MTM3NzI2MzV9.xVoS6-0HVtqHx_tOYg8aX7mZX-4YkGhDvxlmlDu89ww'
+                // 'Authorization': props.token
             })
         }).then((res) => res.json())
             .then((dietlogData) => {
