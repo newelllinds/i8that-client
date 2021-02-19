@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input, Container, Row, Col} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
+import DietlogCreate from "./DietlogCreate"
 
 
 
@@ -7,8 +8,8 @@ const DietlogFetchCal = (props) => {
     const [food_item, setFood_Item] = useState('');
     const [calories, setCalories] = useState('');
 
-     function fetchResults() {
-        const baseURL = "https://api.calorieninjas.com/v1/nutrition?query=banana";
+     const fetchResults = () => {
+        const baseURL = `https://api.calorieninjas.com/v1/nutrition?query=${food_item}`;
 
         fetch(baseURL, {
             method: 'GET',
@@ -19,31 +20,48 @@ const DietlogFetchCal = (props) => {
         })
             .then((res) => res.json())
             .then((json) => {
-                setFood_Item(json.items[0])
+                setFood_Item(json.items[0].name)
+                setCalories(json.items[0].calories)
                 console.log(json)
             })
      }
     
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetchResults();
+    }
+
     
     return (
-    <div className="calc">
-            <Container>
-                <Row>
-                    <Col>
-            <h5>Calculate Calories Here:</h5>
-            <Form className="input">
-                <Input placeholder="default"/>
-            </Form>
-            
-            <button  onClick={fetchResults}>Fetch Calories</button>
-            {setFood_Item}
-            <p>
-                Calories eaten: {food_item.calories}
-                        </p>
+        <div className="tablecreate">
+            <div className="innertcreate">
+                <Form onSubmit={(e) => handleSubmit(e)} >
+                    <Row form>
+                        <Col md={6}>
+                    <FormGroup>
+                       <Label htmlFor="food_item" > 
+                            <h6>Food Item (required): </h6>
+                            </Label>
+                        <Input type="text" name="search" onChange={(e) => setFood_Item(e.target.value)} required />
+                        <button className="submit">Fetch Calories</button>
+                    </FormGroup>
                     </Col>
-                </Row>
-            </Container>
-        </div>
+                    
+                    <Col md={6}>
+                    <FormGroup>
+                        <Label htmlFor="calories" >
+                        <h6>Calories</h6></Label>
+                    <Input disabled name="calories" value={calories} onChange={(e) => setCalories(e.target.value)}/>
+                        </FormGroup>
+                        </Col>
+                    </Row>
+                    <DietlogCreate passedCalories={calories} passedFood_Item={food_item} />
+                </Form>
+                
+            </div>
+            
+            </div>
+   
         
         );
 }

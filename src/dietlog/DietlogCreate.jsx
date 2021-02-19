@@ -11,7 +11,7 @@ const DietlogCreate = (props) => {
     const [feelings, setFeelings] = useState('');
     const [image, setImage] = useState('');
     
-const fetchResults = () => {
+    {/*const fetchResults = () => {
         const baseURL = `https://api.calorieninjas.com/v1/nutrition?query=${food_item}`;
 
         fetch(baseURL, {
@@ -26,21 +26,20 @@ const fetchResults = () => {
                 setFood_Item(json.items[0])
                 console.log(json)
             })
-     }
+     }*/}
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetchResults();
-        fetch('http://localhost:3000/dietlog/', {
+        fetch('http://localhost:3000/dietlog/create', {
             method: 'POST',
-            body: JSON.stringify({ dietlog: { food_item: food_item, calories: calories, date_eaten: date_eaten, where_eaten: where_eaten, feelings: feelings, image: image } }),
+            body: JSON.stringify({ dietlog: { food_item: props.food_item, calories: props.calories, date_eaten: date_eaten, where_eaten: where_eaten, feelings: feelings, image: image } }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjEzNzA3NDYzLCJleHAiOjE2MTM3OTM4NjN9.GD1pZtHdKv7w4YKTl_ZSvK75GL-diE-Mz10eVtqRAGY'
             })
-        }).then((res) => res.json())
-            
-            .then((logData) => {
+        })
+        .then((res) => res.json())
+           .then((logData) => {
                 console.log(logData);
                 setFood_Item('');
                 setCalories('');
@@ -52,41 +51,18 @@ const fetchResults = () => {
         }).catch((err) => console.log(err))
     }
 
- 
+    
 
-
-        // useEffect(() => {
-        //     {fetchResults()}
-        //   }, []);
 
 
 
     return (
-        <div className="tablecreate">
-            <div className="innertcreate">
+        <>
                 <Form onSubmit={(e) => handleSubmit(e)} >
-                    <Row form>
-                        <Col md={6}>
-                    <FormGroup>
-                       <Label htmlFor="food_item" > 
-                            <h6>Food Item (required): </h6>
-                            </Label>
-                        <Input type="text" name="search" onChange={(e) => setFood_Item(e.target.value)} required />
-                        <button className="submit">Fetch Calories</button>
-                    </FormGroup>
-                    </Col>
                     
-                    <Col md={6}>
-                    <FormGroup>
-                        <Label htmlFor="calories" >
-                        <h6>Calories</h6></Label>
-                    <Input name="calories" value={food_item.calories} onChange={(e) => setCalories(e.target.value)}/>
-                        </FormGroup>
-                        </Col>
-                    </Row>
 
                 <Row form>
-                    <Col md="6">
+                    <Col md={6}>
                          <FormGroup>
         <Label htmlFor="date_eaten" ><h6>Date Eaten</h6></Label>
         <Input
@@ -99,7 +75,7 @@ const fetchResults = () => {
       </FormGroup>
                 
                     </Col>
-                    <Col md="6">
+                    <Col md={6}>
                     <FormGroup>
                     <Label htmlFor="where_eaten" ><h6>When Eaten</h6></Label>
                     <Input type="select" name="where_eaten" value={where_eaten} onChange={(e) => setWhere_Eaten(e.target.value)}>
@@ -131,13 +107,13 @@ const fetchResults = () => {
       </FormGroup>
                 
                     </Col>
-                </Row>
-            </Form>    
-            <Button className="btncolor" type="submit">Click to Submit</Button>
+                    </Row>
+                    <Button className="btncolor" type="submit">Click to Submit</Button>
+                </Form> 
+            
             
                 
-             </div>
-         </div>       
+         </>       
             
     );
 }
