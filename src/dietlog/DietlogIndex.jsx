@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import DietlogCreate from './DietlogCreate'
 import DietlogTable from './DietlogTable'
+import DietLogEdit from './DietLogEdit'
 
 
 const DietlogIndex = (props) => {
@@ -14,7 +15,7 @@ const DietlogIndex = (props) => {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNjg2MjM1LCJleHAiOjE2MTM3NzI2MzV9.xVoS6-0HVtqHx_tOYg8aX7mZX-4YkGhDvxlmlDu89ww'
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNzAyMjMxLCJleHAiOjE2MTM3ODg2MzF9.jJkx2M09xwEPiGMfOqQZeBeFjoy0sl5N0uHptEUaXFY'
                 // 'Authorization': props.token
             })
         }).then((res) => res.json())
@@ -32,6 +33,10 @@ const DietlogIndex = (props) => {
         setUpdateActive(true);
     }
 
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
     useEffect(() => {
         fetchDietlogs();
     },[])
@@ -41,9 +46,8 @@ const DietlogIndex = (props) => {
         <Container>
             <Row>
                 <DietlogCreate fetchDietlogs={fetchDietlogs} token={props.token}/>
-            
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
-            
+                {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
             </Row>
         </Container>
     )

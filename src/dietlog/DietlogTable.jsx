@@ -1,15 +1,17 @@
 import React from 'react';
 import { Table, Button, Container, Row, Col } from 'reactstrap';
 
+//Add alert saying "Diet Log has been deleted!"
+
 const DietlogTable = (props) => {
 
     const deleteDietlog = (dietlog) => {
-        fetch(`http://localhost:3000/log/${dietlog.id}`, {
+        fetch(`http://localhost:3000/dietlog/delete/${dietlog.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
                 // 'Authorization': props.token
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNjg2MjM1LCJleHAiOjE2MTM3NzI2MzV9.xVoS6-0HVtqHx_tOYg8aX7mZX-4YkGhDvxlmlDu89ww'
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNzAyMjMxLCJleHAiOjE2MTM3ODg2MzF9.jJkx2M09xwEPiGMfOqQZeBeFjoy0sl5N0uHptEUaXFY'
             })
         }).then(() => props.fetchDietlogs())
     }
