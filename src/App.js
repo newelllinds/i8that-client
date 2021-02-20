@@ -15,11 +15,21 @@ function App() {
     setSessionToken(newToken);
     console.log(sessionToken);
   }
+
+  // const clearToken = () => {
+  //   localStorage.clear();
+  //   setSessionToken('');
+  // }
   
+  // const protectedViews = () => {
+  //   return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken}/> : <Auth updateToken={updateToken}/>)
+  // }
   
   return (
     <div>
       <Auth updateToken={updateToken}/>
+      {/* <Sitebar clickLogout={clearToken}/>
+      {protectedViews()}/ */}
     </div>
   );
 }

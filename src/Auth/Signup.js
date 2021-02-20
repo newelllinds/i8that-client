@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {Form, FormGroup, Container, Button} from 'reactstrap';
 
-const Login = (props) => {
+const Signup = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch("http://localhost:3000/user/login", {
+        fetch("http://localhost:3000/user/create", {
             method: 'POST',
             body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({
@@ -31,7 +31,7 @@ const Login = (props) => {
 
     return(
         <Container className="auth-container">
-        <h3>Login</h3>
+        <h3>Signup</h3>
         <Form onSubmit={handleSubmit}>
         <FormGroup>
          <input
@@ -47,10 +47,10 @@ const Login = (props) => {
          value= {password}
          onChange={(e) => passwordOnChange(e)}/>
          </FormGroup>
-         <Button type="submit">Login</Button>
+         <Button type="submit">Signup</Button>
          </Form>
         </Container>
     )
 }
 
-export default Login;
+export default Signup;

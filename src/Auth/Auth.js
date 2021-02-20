@@ -1,4 +1,5 @@
 import React, { useState }  from 'react';
+import {Container} from 'reactstrap';
 import Login from './Login'
 import Signup from './Signup'
 
@@ -8,10 +9,11 @@ const Auth = (props) => {
     setShowLogin(!showLogin);
     }
     return (
-        <div>
-                {showLogin ? <Login/> : <Signup/> }
+        <Container className="auth-container">
+                {showLogin ? <Login updateToken={props.updateToken} /> : <Signup updateToken={props.updateToken} />}
+
                 <button onClick = {handleToggle}>Signup or Login</button>
-                </div>    
+          </Container>       
     );
 };
 
