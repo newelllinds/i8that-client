@@ -1,15 +1,24 @@
 import React from 'react';
-import {Table, Button} from 'reactstrap';
+import { Table, Button, Container, Row, Col, Alert } from 'reactstrap';
 
-const DietLogTable = (props) => {
+//Add alert saying "Diet Log has been deleted!"
 
-    // const deleteDietLog = (dietlog) => {
-    //     fetch()
-    // }
+const DietlogTable = (props) => {
 
-    const dietLogMapper = () => {
+    const deleteDietlog = (dietlog) => {
+        fetch(`http://localhost:3000/dietlog/delete/${dietlog.id}`, {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        }).then(() => props.fetchDietlogs())
+        
+    }
+
+    const dietlogMapper = () => {
         return props.dietlogs.map((dietlog, index) => {
-            return(
+            return (
                 <tr key={index}>
                     <th scope="row">{dietlog.id}</th>
                     <td>{dietlog.food_item}</td>
@@ -19,36 +28,45 @@ const DietLogTable = (props) => {
                     <td>{dietlog.feelings}</td>
                     <td>{dietlog.image}</td>
                     <td>
-                        <Button color="warning" onClick={() => {props.editUpdateDietLog(dietlog); props.updateOn()}}>Update</Button>
-                        {/* <Button color="danger" onClick={() => {deleteWorkout(workout)}}>Delete</Button> */}
+                        <Button color="warning" onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
+                        <Button color="danger" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
                     </td>
 
+                    
                 </tr>
             )
         })
     }
-    return (
-        <>
-        <h3> Diet Log History </h3>
-        <hr/>
-        <Table striped>
-            <thead>
-                <tr>
-                    <th>Food Item</th>
-                    <th>Calories</th>
-                    <th>Date Eaten</th>
-                    <th>Where Eaten</th>
-                    <th>Feelings</th>
-                    <th>Image</th>
-                </tr>
-            </thead>
-            <tbody>
-                {dietLogMapper()}
-            </tbody>
-        </Table>
 
-        </>
+    return (
+        <div className="table">
+            <Container>
+                <Row>
+                    <Col>
+                    
+            <h3>Your Dietlog</h3>
+            <hr />
+            <Table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Foods</th>
+                        <th>Calories</th>
+                        <th>Date Eaten</th>
+                        <th>When Eaten</th>
+                        <th>Feelings</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {dietlogMapper()}
+                </tbody>
+                        </Table>
+                    </Col>
+                </Row>
+            </Container>
+            </div>
     )
 }
 
-export default DietLogTable;
+export default DietlogTable;
