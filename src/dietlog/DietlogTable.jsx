@@ -11,7 +11,7 @@ const DietlogTable = (props) => {
             headers: new Headers({
                 'Content-Type': 'application/json',
                 // 'Authorization': props.token
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNzAyMjMxLCJleHAiOjE2MTM3ODg2MzF9.jJkx2M09xwEPiGMfOqQZeBeFjoy0sl5N0uHptEUaXFY'
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzOTE5NzA3LCJleHAiOjE2MTQwMDYxMDd9.54efJXkWnIZU8jGrsPp0w368negyL7gpuGm8WyaMswM'
             })
         }).then(() => props.fetchDietlogs())
     }

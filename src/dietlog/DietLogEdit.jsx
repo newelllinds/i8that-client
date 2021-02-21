@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 
 const DietLogEdit = (props) => {
-    const [editFoodItem, setEditFoodItem] = useState(props.dietlogToUpdate.food_item); //coming from DietLogIndex
+    const [editFoodItem, setEditFoodItem] = useState(props.dietlogToUpdate.food_item);
     const [editCalories, setEditCalories] = useState(props.dietlogToUpdate.calories);
     const [editDateEaten, setEditDateEaten] = useState(props.dietlogToUpdate.date_eaten);
     const [editWhereEaten, setEditWhereEaten] = useState(props.dietlogToUpdate.where_eaten);
@@ -12,13 +12,12 @@ const DietLogEdit = (props) => {
     const dietLogUpdate = (event, dietlog) => {
         event.preventDefault();
         console.log(editFoodItem, editCalories, editDateEaten, editWhereEaten, editFeelings, editImage, props.dietlogToUpdate.id);
-        // fetch(`http://localhost:3000/dietlog/${props.dietLogToUpdate.id}`, {
-        fetch('http://localhost:3000/dietlog/update/7', {
+        fetch(`http://localhost:3000/dietlog/update/${props.dietlogToUpdate.id}`, {
             method: 'PUT',
-            body: JSON.stringify({food_item: editFoodItem, calories: editCalories, date_eaten: editDateEaten, where_eaten: editWhereEaten, feelings: editFeelings, image: editImage}),
-            headers: new Headers({
+            body: JSON.stringify({dietlog: {food_item: editFoodItem, calories: editCalories, date_eaten: editDateEaten, where_eaten: editWhereEaten, feelings: editFeelings, image: editImage}}),
+            headers: new Headers ({
                 'Content-Type': 'application/json',
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzNzAyMjMxLCJleHAiOjE2MTM3ODg2MzF9.jJkx2M09xwEPiGMfOqQZeBeFjoy0sl5N0uHptEUaXFY'
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzOTE5NzA3LCJleHAiOjE2MTQwMDYxMDd9.54efJXkWnIZU8jGrsPp0w368negyL7gpuGm8WyaMswM'
             })
         }).then((res) => {
             props.fetchDietlogs();
@@ -28,10 +27,6 @@ const DietLogEdit = (props) => {
     }
 
     return(
-        // <>
-        // This is Diet Log Edit
-        // </>
-        
         <Modal isOpen={true}>
             <ModalHeader>Log a Meal</ModalHeader>
             <ModalBody>
@@ -42,7 +37,7 @@ const DietLogEdit = (props) => {
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="calories">Edit Calories:</Label>
-                        <Input name="calories" value={editCalories} onChange={(e) => setEditCalories(e.target.value)}/>
+                        <Input name="date_eaten" value={editCalories} onChange={(e) => setEditCalories(e.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="date_eaten">Edit Date Eaten:</Label>
@@ -51,10 +46,10 @@ const DietLogEdit = (props) => {
                     <FormGroup>
                         <Label htmlFor="where_eaten">Edit When Eaten:</Label>
                         <Input type="select" name="where_eaten" value={editWhereEaten} onChange={(e) => setEditWhereEaten(e.target.value)}>
-                        <option value="Breakfast">Breakfast</option>
-                        <option value="Lunch">Lunch</option>
-                        <option value="Dinner">Dinner</option>
-                        <option value="Snack">Snack</option>
+                            <option value="Breakfast">Breakfast</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Dinner">Dinner</option>
+                            <option value="Snack">Snack</option>
                         </Input>
                     </FormGroup>
                     <FormGroup>
