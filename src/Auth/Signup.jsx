@@ -9,7 +9,7 @@ const Signup = (props) => {
     =useState('');
 const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:3000/user/Signup", {
+    fetch("http://localhost:3000/user/create", {
         method: 'POST',
         body: JSON.stringify({user: {username: username,
         password: password}}), headers: new Headers({ 'Content-Type': 'application/json'
