@@ -1,47 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import bgimage from './images/headerimage.jpg'
 import { Jumbotron } from 'reactstrap';
 import logo from './images/i8logo-01.jpg'
 import DietlogIndex from './dietlog/DietlogIndex'
-
-/****
- * import './App.css';
-import DietLogEdit from './dietlog/DietLogEdit'
-import React, { useState, useEffect } from 'react';
-import {Container, Row, Col} from 'reactstrap';
-import DietLogTable from './dietlog/DietLogTable';
-
-const [dietLogs, setDietLogs] = useState
-const [updateActive, setUpdateActive] = useState(false);
-const [dietLogToUpdate, setDietLogToUpdate] = useState({});
-
-function App() {
-
-
-const editUpdateDietlog = (dietlog) => {
-  setDietLogToUpdate(dietlog);
-  console.log(dietlog);
-}
-
-const updateOn = () => {
-  setUpdateActive(true);
-}
-
-const updateOff = () => {
-  setUpdateActive(false);
-}
-
-return (
-  <div>
-    <DietLogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietLogs={fetchDietLogs} token={props.token}/>
-  </div>
-);
- */
-
+import Auth from './auth/Auth';
 
 
 function App() {
+  const [sessionToken, setSessionToken] = useState('');
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setSessionToken(localStorage.getItem('token'));
+    }
+  }, [])
+  
+  const updateToken = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setSessionToken(newToken);
+    console.log(newToken);
+  }
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('');
+  }
+
+  {/*const protectedViews = () => {
+  return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} /> : <Auth updateToken={updateToken} />)
+  }*/}
+  
   
   return (
     <div className="container">
@@ -61,7 +50,8 @@ function App() {
       
       <hr />
       
-      <DietlogIndex />
+      <DietlogIndex clearToken={clearToken} />
+      {/* {protectedViews()} */}
       
     </div>
 

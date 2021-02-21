@@ -8,7 +8,8 @@ const DietlogFetchCal = (props) => {
     const [food_item, setFood_Item] = useState('');
     const [calories, setCalories] = useState('');
 
-     const fetchResults = () => {
+    const fetchResults = (e) => {
+        e.preventDefault();
         const baseURL = `https://api.calorieninjas.com/v1/nutrition?query=${food_item}`;
 
         fetch(baseURL, {
@@ -22,27 +23,23 @@ const DietlogFetchCal = (props) => {
             .then((json) => {
                 setFood_Item(json.items[0].name)
                 setCalories(json.items[0].calories)
+                console.log(json.items[0].name)
+                console.log(json.items[0].calories)
                 console.log(json)
             })
      }
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        fetchResults();
-    }
-
-    
+        
     return (
         <div className="tablecreate">
             <div className="innertcreate">
-                <Form onSubmit={(e) => handleSubmit(e)} >
+                <Form onSubmit={fetchResults} >
                     <Row form>
                         <Col md={6}>
                     <FormGroup>
                        <Label htmlFor="food_item" > 
                             <h6>Food Item (required): </h6>
                             </Label>
-                        <Input type="text" name="search" onChange={(e) => setFood_Item(e.target.value)} required />
+                                <Input type="text" name="search" value={food_item} onChange={(e) => setFood_Item(e.target.value)} required />
                         <button className="submit">Fetch Calories</button>
                     </FormGroup>
                     </Col>
@@ -51,13 +48,13 @@ const DietlogFetchCal = (props) => {
                     <FormGroup>
                         <Label htmlFor="calories" >
                         <h6>Calories</h6></Label>
-                    <Input disabled name="calories" value={calories} onChange={(e) => setCalories(e.target.value)}/>
+                    <Input name="calories" value={calories} onChange={(e) => setCalories(e.target.value)}/>
                         </FormGroup>
                         </Col>
                     </Row>
-                    <DietlogCreate passedCalories={calories} passedFood_Item={food_item} />
+                    
                 </Form>
-                
+                <DietlogCreate calories={calories} food_item={food_item} token={props.token}/>
             </div>
             
             </div>
