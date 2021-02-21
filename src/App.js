@@ -19,6 +19,7 @@ function App() {
   const updateToken = (newToken) => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
+
     console.log(newToken);
   }
 
@@ -52,10 +53,10 @@ function App() {
       
       <DietlogIndex clearToken={clearToken} />
       {/* {protectedViews()} */}
-      
+       <Auth updateToken={updateToken}/>
+
     </div>
 
   );
 }
-
 export default App;
