@@ -15,8 +15,7 @@ const DietlogIndex = (props) => {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzOTE5NzA3LCJleHAiOjE2MTQwMDYxMDd9.54efJXkWnIZU8jGrsPp0w368negyL7gpuGm8WyaMswM'
-                // 'Authorization': props.token
+                'Authorization': props.token
             })
         }).then((res) => res.json())
             .then((dietlogData) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button, Container, Row, Col } from 'reactstrap';
+import { Table, Button, Container, Row, Col, Alert } from 'reactstrap';
 
 //Add alert saying "Diet Log has been deleted!"
 
@@ -10,10 +10,10 @@ const DietlogTable = (props) => {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
-                // 'Authorization': props.token
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzOTE5NzA3LCJleHAiOjE2MTQwMDYxMDd9.54efJXkWnIZU8jGrsPp0w368negyL7gpuGm8WyaMswM'
+                'Authorization': props.token
             })
         }).then(() => props.fetchDietlogs())
+        
     }
 
     const dietlogMapper = () => {

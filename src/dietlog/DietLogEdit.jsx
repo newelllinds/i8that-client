@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 
 const DietLogEdit = (props) => {
     const [editFoodItem, setEditFoodItem] = useState(props.dietlogToUpdate.food_item);
@@ -17,7 +17,7 @@ const DietLogEdit = (props) => {
             body: JSON.stringify({dietlog: {food_item: editFoodItem, calories: editCalories, date_eaten: editDateEaten, where_eaten: editWhereEaten, feelings: editFeelings, image: editImage}}),
             headers: new Headers ({
                 'Content-Type': 'application/json',
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjEzOTE5NzA3LCJleHAiOjE2MTQwMDYxMDd9.54efJXkWnIZU8jGrsPp0w368negyL7gpuGm8WyaMswM'
+                'Authorization': props.token
             })
         }).then((res) => {
             props.fetchDietlogs();
