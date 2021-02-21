@@ -27,7 +27,9 @@ const DietlogFetchCal = (props) => {
                 console.log(json.items[0].calories)
                 console.log(json)
             })
-     }
+    }
+    
+   
         
     return (
         <div className="tablecreate">
