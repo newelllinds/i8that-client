@@ -14,7 +14,6 @@ const DietlogIndex = (props) => {
     
 
     const fetchDietlogs = () => {
-        console.log(token)
         fetch('http://localhost:3000/dietlog/mylogs', {
             method: 'GET',
             headers: new Headers({
@@ -43,19 +42,22 @@ const DietlogIndex = (props) => {
     }
 
     useEffect(() => {
-        fetchWorkouts();
+        fetchDietlogs();
     },[])
 
 
     return (
         <Container>
-            <Row>
-                <DietlogCreate fetchDietlogs={fetchDietlogs} token={props.token}/>
-                <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
-                {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
-                <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token}/>
+            <Row>                
+                
+                
+                <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
 
                 
+                <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
+                {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
+
+
                 
              
             </Row>

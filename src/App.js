@@ -4,7 +4,9 @@ import bgimage from './images/headerimage.jpg'
 import { Jumbotron } from 'reactstrap';
 import logo from './images/i8logo-01.jpg'
 import DietlogIndex from './dietlog/DietlogIndex'
-import Auth from './auth/Auth';
+import Auth from './Auth/Auth';
+import Sitebar from './home/Navbar';
+
 
 
 function App() {
@@ -19,8 +21,6 @@ function App() {
   const updateToken = (newToken) => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
-
-    console.log(newToken);
   }
 
   const clearToken = () => {
@@ -28,9 +28,9 @@ function App() {
     setSessionToken('');
   }
 
-  {/*const protectedViews = () => {
+  const protectedViews = () => {
   return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} /> : <Auth updateToken={updateToken} />)
-  }*/}
+  }
   
   
   return (
@@ -50,10 +50,10 @@ function App() {
       <h4 className="text-center">Welcome to I8That premier food log!</h4>
       
       <hr />
+
+      <Sitebar clearToken={clearToken}/>
       
-      <DietlogIndex clearToken={clearToken} />
-      {/* {protectedViews()} */}
-       <Auth updateToken={updateToken}/>
+      {protectedViews()}
 
     </div>
 
