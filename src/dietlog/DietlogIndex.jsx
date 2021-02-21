@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import DietlogCreate from './DietlogCreate'
+import DietlogTable from './DietlogTable'
+import DietLogEdit from './DietLogEdit'
 import DietlogFetchCal from './DietlogFetchCal'
 
 
@@ -47,6 +50,9 @@ const DietlogIndex = (props) => {
     return (
         <Container>
             <Row>
+                <DietlogCreate fetchDietlogs={fetchDietlogs} token={props.token}/>
+                <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
+                {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token}/>
 
                 
