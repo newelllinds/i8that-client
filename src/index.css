@@ -13,6 +13,6 @@ code {
 }
 
 .jumbotron {
-      padding-top: 100%;
-      padding-bottom: 20%;
+  height: 50px;
+  width: 100%;
     }
