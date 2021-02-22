@@ -37,7 +37,7 @@ const DietLogEdit = (props) => {
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="calories">Edit Calories:</Label>
-                        <Input name="date_eaten" value={editCalories} onChange={(e) => setEditCalories(e.target.value)}/>
+                        <Input name="calories  " value={editCalories} onChange={(e) => setEditCalories(e.target.value)}/>
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor="date_eaten">Edit Date Eaten:</Label>
