@@ -19,17 +19,19 @@ const Sitebar = (props) => {
     }
     
     return (
-        <Navbar color="faded" light expand="md">
+        
+        <Navbar  color="faded" light expand="md">
             <NavbarBrand href="/"></NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
-                <Nav className="ml-auto" navbar>
+                <Nav className="navbar1" className="ml-auto" navbar>
                     <NavItem>
-                        <Button onClick={props.clearToken}>Logout</Button>
+                        <Button className="logout" onClick={props.clearToken}>Logout</Button>
                     </NavItem>
                 </Nav>
             </Collapse>
-        </Navbar>
+            </Navbar>
+        
     )
 }
 

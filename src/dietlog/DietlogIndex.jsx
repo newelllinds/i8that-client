@@ -49,13 +49,14 @@ const DietlogIndex = (props) => {
     return (
         <Container>
             <Row>                
-                
-                
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
-
+                
                 
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
+                
+                
+
 
 
                 
