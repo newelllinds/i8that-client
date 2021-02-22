@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 import DietlogCreate from "./DietlogCreate"
 
@@ -30,6 +30,7 @@ const DietlogFetchCal = (props) => {
     }
     
    
+   
         
     return (
         <div className="tablecreate">
@@ -56,7 +57,7 @@ const DietlogFetchCal = (props) => {
                     </Row>
                     
                 </Form>
-                <DietlogCreate calories={calories} food_item={food_item} token={props.token}/>
+                <DietlogCreate calories={calories} food_item={food_item} token={props.token} fetchDietlogs={props.fetchDietlogs}/>
             </div>
             
             </div>
