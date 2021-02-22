@@ -22,8 +22,8 @@ const DietlogIndex = (props) => {
 
             })
         }).then((res) => res.json())
-            .then((dietlogData) => {
-            setDietlogs(dietlogData)
+            .then((logData) => {
+            setDietlogs(logData)
         })
     }
 

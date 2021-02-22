@@ -31,17 +31,17 @@ const Signup = (props) => {
 
     return(
         <Container className="auth-container">
-        <h3>Signup</h3>
-        <Form onSubmit={handleSubmit}>
+        <h3 className="header2">Signup</h3>
+        <Form className="loginform" onSubmit={handleSubmit}>
         <FormGroup>
-         <input
+         <input 
          type="text"
          placeholder="username"
          value= {username}
          onChange={(e) => usernameOnChange(e)}/>
         </FormGroup>
         <FormGroup>
-         <input
+         <input 
          type="text"
          placeholder="password"
          value= {password}

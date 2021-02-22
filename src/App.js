@@ -45,6 +45,7 @@ function App() {
           alignItems: "center"
         }}>
         <img className="logo" src={logo} alt="logo" />
+        
       </div>
       <hr />
       <h4 className="text-center">Welcome to I8That premier food log!</h4>
@@ -54,7 +55,7 @@ function App() {
       <Sitebar clearToken={clearToken}/>
       
       {protectedViews()}
-
+<div className="footer">I8That Copyright &copy;2020</div>
     </div>
 
   );

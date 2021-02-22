@@ -22,7 +22,7 @@ const DietlogFetchCal = (props) => {
             .then((res) => res.json())
             .then((json) => {
                 setFood_Item(json.items[0].name)
-                setCalories(json.items[0].calories)
+                setCalories(Math.round(json.items[0].calories))
                 console.log(json.items[0].name)
                 console.log(json.items[0].calories)
                 console.log(json)
