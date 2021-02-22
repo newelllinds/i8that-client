@@ -9,11 +9,14 @@ const Auth = (props) => {
     setShowLogin(!showLogin);
     }
     return (
-        <Container className="auth-container">
-                {showLogin ? <Login updateToken={props.updateToken} /> : <Signup updateToken={props.updateToken} />}
+        <div>
+        <Container className="auth-container" className="stylenav">
+                {showLogin ? <Signup updateToken={props.updateToken} /> : <Login updateToken={props.updateToken} />}
 
-                <button onClick = {handleToggle}>Signup or Login</button>
-          </Container>       
+                
+          </Container> 
+            <h5 className="membertext">Already a member? <button className="login" onClick={handleToggle}>Login</button></h5>
+        </div>     
     );
 };
 
