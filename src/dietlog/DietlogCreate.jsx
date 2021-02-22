@@ -34,8 +34,8 @@ const DietlogCreate = (props) => {
         },
       }),
       headers: new Headers({
-        "Content-Type": "application/json",
-        Authorization: props.token,
+        'Content-Type': 'application/json',
+        'Authorization': props.token,
       }),
     })
       .then((res) => res.json())
