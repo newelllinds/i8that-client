@@ -28,7 +28,7 @@ const DietlogTable = (props) => {
                     <td>{dietlog.feelings}</td>
                     <td>{dietlog.image}</td>
                     <td>
-                        <Button color="warning" onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
+                        <Button color="secondary" onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
                     </td>
 
@@ -46,7 +46,7 @@ const DietlogTable = (props) => {
                     
             <h3>Your Dietlog</h3>
             <hr />
-            <Table>
+            <Table striped hover>
                 <thead>
                     <tr>
                         <th>#</th>

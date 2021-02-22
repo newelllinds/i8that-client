@@ -34,15 +34,9 @@ const DietlogCreate = (props) => {
         },
       }),
       headers: new Headers({
-<<<<<<< HEAD
-        "Content-Type": "application/json",
-        Authorization: props.token,
-      })
-=======
         'Content-Type': 'application/json',
         'Authorization': props.token,
       }),
->>>>>>> c661f303290403338b4f64f700ffcade7bb662c2
     })
       .then((res) => res.json())
       .then((logData) => {
