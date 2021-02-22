@@ -75,10 +75,10 @@ width: 130px;
 
 .stylenav{
 width: 400px !important;
-height: 300px;
+height: 320px;
 background-color:#e4e9f5;  
 padding-top: 30px;  
-margin-bottom: 20px;
+margin-bottom: 30px;
 border-radius: 20px;
 
 }
@@ -92,11 +92,11 @@ align-items: center;
 }
 
 .login{
-background-color: orange !important; 
+background-color: #e4e9f5 !important; 
+border-radius: 4px;
 color: black !important;
 width: 135px;
 height: 39px;
-border-radius: 4px;
 margin-top: 10px;
 border-style: hidden;
 }
@@ -158,3 +158,49 @@ align-items: center;
 .table {
   padding-top: 5%;
 }
+
+.header2{
+  font-size: 38px;
+  color:#05324c;
+}
+
+.loginform{
+  margin-top: 20px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input1{
+  margin-top: 20px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnsubmit{
+  width: 130px !important;
+  background-color: orange !important; 
+color: black !important;
+width: 135px;
+height: 39px;
+border-radius: 4px;
+margin-top: 10px;
+border-style: hidden;
+font-size: 20px !important;
+
+}
+
+.sent1{
+  margin-bottom: 20px;
+}
+
+.input2{
+  width: 250px;
+  height: 38px;
+}
+

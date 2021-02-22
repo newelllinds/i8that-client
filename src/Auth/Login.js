@@ -31,23 +31,25 @@ const Login = (props) => {
 
     return(
         <Container className="auth-container">
-        <h3 className="header2">Login</h3>
+            <h3 className="header2">Login</h3>
+        <h6 className="sent1">Login to use the I8That App.</h6>
+
         <Form className="input1" onSubmit={handleSubmit}>
         <FormGroup>
-         <input className="input1" className="topinput"
+         <input className="input2"
          type="text"
          placeholder="username"
          value= {username}
          onChange={(e) => usernameOnChange(e)}/>
         </FormGroup>
         <FormGroup>
-         <input className="input1"
+         <input className="input2"
          type="text"
          placeholder="password"
          value= {password}
          onChange={(e) => passwordOnChange(e)}/>
          </FormGroup>
-         <Button type="submit">Login</Button>
+         <Button className="btnsubmit" type="submit">Login</Button>
          </Form>
         </Container>
     )
