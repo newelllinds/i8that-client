@@ -4,6 +4,7 @@ import DietlogCreate from './DietlogCreate'
 import DietlogTable from './DietlogTable'
 import DietLogEdit from './DietLogEdit'
 import DietlogFetchCal from './DietlogFetchCal'
+import DailySummary from './DailySummary'
 
 
 
@@ -22,8 +23,8 @@ const DietlogIndex = (props) => {
 
             })
         }).then((res) => res.json())
-            .then((dietlogData) => {
-            setDietlogs(dietlogData)
+            .then((logData) => {
+            setDietlogs(logData)
         })
     }
 
@@ -51,6 +52,7 @@ const DietlogIndex = (props) => {
             <Row>                
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
                 
+                <DailySummary token={props.token}/>
                 
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
