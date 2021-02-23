@@ -11,6 +11,8 @@ import {
   FormText,
 } from "reactstrap";
 
+
+
 const DietlogCreate = (props) => {
   const [food_item, setFood_Item] = useState("");
   const [calories, setCalories] = useState("");
@@ -18,6 +20,26 @@ const DietlogCreate = (props) => {
   const [where_eaten, setWhere_Eaten] = useState("");
   const [feelings, setFeelings] = useState("");
   const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'truimagesnow')
+    setLoading(true)
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/dnesqlk9j/image/upload',
+      {
+        method: 'POST',
+        body: data
+      }
+    )
+    const file = await res.json()
+    setImage(file.secure_url)
+    console.log(file.secure_url)
+    setLoading(false)
+    }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +73,8 @@ const DietlogCreate = (props) => {
       })
       .catch((err) => console.log(err));
   };
-    
+
+  
     
   return (
     <>
@@ -81,11 +104,13 @@ const DietlogCreate = (props) => {
                 value={where_eaten}
                 onChange={(e) => setWhere_Eaten(e.target.value)}
               >
+                <option >Choose a value</option>
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Dinner">Dinner</option>
                 <option value="Snack">Snack</option>
               </Input>
+              
             </FormGroup>
           </Col>
         </Row>
@@ -106,13 +131,13 @@ const DietlogCreate = (props) => {
           <Col md="6">
             <FormGroup>
               <Label htmlFor="image">
-                <h6>Image</h6>
+                <h6>Upload Image</h6>
               </Label>
               <Input
                 type="file"
-                name="image"
+                name="file"
                 value={image}
-                onChange={(e) => setImage(e.target.value)}
+                onChange={uploadImage}
               />
               <FormText color="muted">Submit image of your food.</FormText>
             </FormGroup>
