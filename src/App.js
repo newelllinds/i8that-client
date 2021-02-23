@@ -55,7 +55,7 @@ function App() {
       <Sitebar clearToken={clearToken}/>
       
       {protectedViews()}
-<div className="footer">I8That Copyright &copy;2020</div>
+<div className="footer">I8That Copyright &copy;2021</div>
     </div>
 
   );
