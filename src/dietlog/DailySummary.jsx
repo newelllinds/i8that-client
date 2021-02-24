@@ -4,7 +4,8 @@ import { Table, Button, Container, Row, Col, Alert } from 'reactstrap';
 const DailySummary = (props) => {
     const [totalCalories, setTotalCalories] = useState(0);
     var total = 0
-    var today = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})
+    var today = new Date().toLocaleDateString();
+    // var today = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})
     today = new Date(today).toISOString().slice(0,10);
     console.log(today)
     let dateSelected = today
