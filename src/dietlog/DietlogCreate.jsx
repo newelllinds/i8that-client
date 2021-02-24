@@ -138,6 +138,11 @@ const DietlogCreate = (props) => {
                 name="file"
                 onChange={uploadImage}
               />
+              {loading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <img src={image} style={{ width: '100px' }} />
+      )}
               <FormText color="muted">Submit image of your food.</FormText>
             </FormGroup>
           </Col>
