@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Container, Button} from 'reactstrap';
+import {Form, FormGroup, Container, Button, Input, FormFeedback} from 'reactstrap';
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
@@ -36,16 +36,18 @@ const Login = (props) => {
 
         <Form className="input1" onSubmit={handleSubmit}>
         <FormGroup>
-         <input className="input2"
+        <Input className="input2"
          type="text"
-         placeholder="username"
+         placeholder="Username" 
+         required
          value= {username}
          onChange={(e) => usernameOnChange(e)}/>
         </FormGroup>
         <FormGroup>
-         <input className="input2"
-         type="text"
-         placeholder="password"
+         <Input className="input2"
+         type="password"
+         placeholder="Password"
+         required
          value= {password}
          onChange={(e) => passwordOnChange(e)}/>
          </FormGroup>
