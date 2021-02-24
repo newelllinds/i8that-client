@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Button, Container, Row, Col, Alert } from 'reactstrap';
+import headerimagecopy from '../images/headerimagecopy.jpg'
 
 //Add alert saying "Diet Log has been deleted!"
 
@@ -20,7 +21,7 @@ const DietlogTable = (props) => {
         return props.dietlogs.map((dietlog, index) => {
             return (
                 <tr key={index}>
-                    <th scope="row">{dietlog.id}</th>
+                    <th className="id" scope="row">{dietlog.id}</th>
                     <td>{dietlog.food_item}</td>
                     <td>{dietlog.calories}</td>
                     <td>{dietlog.date_eaten}</td>
@@ -28,8 +29,10 @@ const DietlogTable = (props) => {
                     <td>{dietlog.feelings}</td>
                     <td><img src={dietlog.image} style={{ width: '100px' }} /></td>
                     <td>
-                        <Button color="secondary" onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
-                        <Button color="danger" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
+                        <Button
+                            className="updatebtn1"
+                            onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
+                        <Button className="deletebtn1" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
                     </td>
 
                     
@@ -39,15 +42,16 @@ const DietlogTable = (props) => {
     }
 
     return (
-        <div className="table">
-            <Container>
+        <div className="outerdietlog">
+            <div className="jumbotron2" style={{ backgroundColor: 'orange'}}>
+            <h3 className="yourheader">Your Dietlog</h3></div>
+            <Container className="table1">
                 <Row>
                     <Col>
                     
-            <h3>Your Dietlog</h3>
-            <hr />
+            
             <Table striped hover>
-                <thead>
+                <thead className="tableheaderlines">
                     <tr>
                         <th>#</th>
                         <th>Foods</th>
@@ -59,6 +63,8 @@ const DietlogTable = (props) => {
                     </tr>
                 </thead>
                 <tbody>
+                      
+
                     {dietlogMapper()}
                 </tbody>
                         </Table>

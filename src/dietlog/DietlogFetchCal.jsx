@@ -42,7 +42,9 @@ const DietlogFetchCal = (props) => {
                        <Label htmlFor="food_item" > 
                             <h6>Food Item (required): </h6>
                             </Label>
-                                <Input type="text" name="search" value={food_item} onChange={(e) => setFood_Item(e.target.value)} required />
+                                <Input type="text" name="search"
+                                    required="required"
+                                    value={food_item} onChange={(e) => setFood_Item(e.target.value)} />
                         <button className="submit">Fetch Calories</button>
                     </FormGroup>
                     </Col>
