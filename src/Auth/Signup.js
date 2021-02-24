@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Container, Button} from 'reactstrap';
+import {Form, FormGroup, Container, Button, Input} from 'reactstrap';
 
 const Signup = (props) => {
     const [username, setUsername] = useState('');
@@ -35,16 +35,22 @@ const Signup = (props) => {
             <h6 className="sent1">Register to use the I8That App.</h6>
         <Form className="input1" onSubmit={handleSubmit}>
         <FormGroup>
-         <input className="input2"
+         <Input className="input2"
          type="text"
-         placeholder="username"
+         placeholder="Username"
+         pattern = "^(?=^.{4,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-zA-Z]).*$"
+         title="Username should be 4 or more characters and include number or special character"
+        required
          value= {username}
          onChange={(e) => usernameOnChange(e)}/>
         </FormGroup>
         <FormGroup>
-         <input className="input2"
+         <Input className="input2"
          type="text"
-         placeholder="password"
+         placeholder="Password"
+         pattern = "^(?=^.{4,}$).*$"
+         title="Password should be 5 or more characters"
+         required
          value= {password}
          onChange={(e) => passwordOnChange(e)}/>
          </FormGroup>
@@ -55,3 +61,5 @@ const Signup = (props) => {
 }
 
 export default Signup;
+
+	
