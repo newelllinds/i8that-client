@@ -26,7 +26,7 @@ const DietlogTable = (props) => {
                     <td>{dietlog.date_eaten}</td>
                     <td>{dietlog.where_eaten}</td>
                     <td>{dietlog.feelings}</td>
-                    <td>{dietlog.image}</td>
+                    <td> <img src={dietlog.image} style={{width: '100 px'}}/></td>
                     <td>
                         <Button color="secondary" onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
                         <Button color="danger" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
