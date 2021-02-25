@@ -55,12 +55,10 @@ console.log(props.userId)
                 
                 <DailySummary token={props.token} userId={props.userId}/>
 
-                <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token}/>
+                <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token} userId={props.userId}/>
                 
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
-                
-                <DailySummary token={props.token}/>
 
 
 

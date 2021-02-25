@@ -18,7 +18,7 @@ const DietlogGetByDate = (props) => {
     let date_eaten = '2021-02-23'
 
     function fetchDietlogsByDate()  {
-        fetch(`http://localhost:3000/dietlog/${date_eaten}/${id}`, {
+        fetch(`http://localhost:3000/dietlog/${date_eaten}/${props.userId}`, {
             headers: new Headers ({
                 'Authorization': props.token
             })
