@@ -11,7 +11,7 @@ const Auth = (props) => {
     return (
         <div>
         <Container className="auth-container" className="stylenav">
-                {showLogin ? <Signup updateToken={props.updateToken} /> : <Login updateToken={props.updateToken} />}
+                {showLogin ? <Signup updateToken={props.updateToken} getId={props.getId}/> : <Login updateToken={props.updateToken} userId={props.getId}/>}
 
                 
           </Container> 

@@ -47,13 +47,13 @@ const DietlogIndex = (props) => {
         fetchDietlogs();
     },[])
 
-
+console.log(props.userId)
     return (
         <Container>
             <Row>                
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
                 
-                <DailySummary token={props.token}/>
+                <DailySummary token={props.token} userId={props.userId}/>
 
                 <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token}/>
                 
