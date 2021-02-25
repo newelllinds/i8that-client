@@ -18,8 +18,7 @@ const Sitebar = (props) => {
         setIsOpen(newIsOpen);
     }
     
-    return (
-        
+    return ( 
         <Navbar  color="faded" light expand="md">
             <NavbarBrand href="/"></NavbarBrand>
             <NavbarToggler onClick={toggle} />
