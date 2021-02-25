@@ -87,8 +87,10 @@ const DietlogCreate = (props) => {
               <Input
                 type="date"
                 name="date_eaten"
+                required="required"
                 value={date_eaten}
-                onChange={(e) => setDate_Eaten(e.target.value)}
+                onChange={(e) => setDate_Eaten(e.target.value)
+                }
               />
             </FormGroup>
           </Col>
@@ -101,10 +103,11 @@ const DietlogCreate = (props) => {
               <Input
                 type="select"
                 name="where_eaten"
+                required="required"
                 value={where_eaten}
                 onChange={(e) => setWhere_Eaten(e.target.value)}
               >
-                <option >Choose a value</option>
+                <option value="">Choose a value</option>
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Dinner">Dinner</option>
