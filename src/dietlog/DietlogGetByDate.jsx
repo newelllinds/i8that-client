@@ -11,14 +11,16 @@ import {
     FormText,
     Table,
   } from "reactstrap";
+  import DietlogGetByDateTable from './DietlogGetByDateTable'
 
 const DietlogGetByDate = (props) => {
     const [resultsByDate, setResultsByDate] = useState([])
-    let id = 2;
     let date_eaten = '2021-02-23'
+    console.log(props.getId)
+    //need to pass user id as props into endpoint
 
     function fetchDietlogsByDate()  {
-        fetch(`http://localhost:3000/dietlog/${date_eaten}/${props.userId}`, {
+        fetch(`http://localhost:3000/dietlog/${date_eaten}/${props.getId}`, {
             headers: new Headers ({
                 'Authorization': props.token
             })
@@ -31,6 +33,11 @@ const DietlogGetByDate = (props) => {
             });
     }
 
+    function displayCards(){
+        return resultsByDate.length > 0 ? resultsByDate.map((resultsByDate) =>
+        <DietlogGetByDateTable resultsByDate={resultsByDate} />) : null;
+    }
+
     return(
         <div className="table">
             <Container>
@@ -38,7 +45,8 @@ const DietlogGetByDate = (props) => {
                     <Col>
                     
             <h3>This is Get By Date</h3>
-            <Button onClick={fetchDietlogsByDate}>Get Today's Logs</Button>
+            <Button onClick={fetchDietlogsByDate}>Get Logs By Date</Button>
+            {displayCards()}
 
                     </Col>
                 </Row>
