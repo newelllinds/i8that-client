@@ -6,7 +6,7 @@ const DailySummary = (props) => {
     var total = 0
     var today = new Date().toLocaleDateString();
     today = new Date(today).toISOString().slice(0,10);
-    console.log(props.getId);
+    console.log(props.userId);
     let dateSelected = today
         fetch(`http://localhost:3000/dietlog/${dateSelected}/${props.getId}`, {
             method: 'GET',

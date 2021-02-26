@@ -18,7 +18,7 @@ const Signup = (props) => {
         ).then((data) => {
             props.updateToken(data.sessionToken);
             console.log(data);
-            props.getId(data.user.id)
+            props.setId(data.user.id)
         })
     }
 

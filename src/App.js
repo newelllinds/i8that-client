@@ -6,8 +6,6 @@ import logo from './images/i8logo-01.jpg'
 import DietlogIndex from './dietlog/DietlogIndex'
 import Auth from './Auth/Auth';
 import Sitebar from './home/Navbar';
-import Login from './Auth/Login';
-
 
 
 function App() {
@@ -31,18 +29,12 @@ function App() {
   }
 
   /// trying to pass id 
-  const getId = (id) => {
+  const setId = (id) => {
     setUserId(id);
   }
 
-    //     .then((json) => {
-    //       // setUserID(user.id)
-    //       console.log(json.user.id)
-    //     })
-    // }
-
   const protectedViews = () => {
-  return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId}/> : <Auth updateToken={updateToken} getId={getId}/>)
+  return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId}/> : <Auth updateToken={updateToken} setId={setId}/>)
   }
   
   
