@@ -52,6 +52,7 @@ const DietlogIndex = (props) => {
         <Container>
             <Row>    
                 <DailySummary token={props.token} />
+                
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
                 
                 
@@ -60,9 +61,8 @@ const DietlogIndex = (props) => {
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
                 
                 
-                
                 <div className="tiredsentence"><h4><i>Tired of eating the same thing? Consider the daily recipes below!</i></h4></div>
-
+                
                 <div className="outerrandomrecipe-card">
                     <Row>
                         <Col>

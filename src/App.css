@@ -58,7 +58,7 @@
   height: 40px;
   width: 100%;
   background-color: orange;
-  margin-top: 200px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,6 +209,7 @@ border-style: hidden !important;
 .outerdietlog{
   width: 84%;
   margin: auto;
+  margin-bottom: 200px;
 }
 
 table td {
@@ -322,6 +323,7 @@ table td {
 .tiredsentence{
   margin: auto;
   margin-bottom: 20px;
+  color:darkorange;
 }
 
 .meal-info{
@@ -387,6 +389,12 @@ h6{
   color: black !important;
   background-color: orange !important;
   border-style: hidden !important;
+}
+
+.dailysummaryouter{
+  width: 80%;
+  background-color:lightblue;
+  margin: auto;
 }
 
 

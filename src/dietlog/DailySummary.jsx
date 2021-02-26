@@ -27,17 +27,12 @@ const DailySummary = (props) => {
         })     
 
     return (
-        <div className="table">
-            <Container>
-                <Row>
-                    <Col>
-                    
-            <h3>Calories Consumed Today</h3>
-            {totalCalories}
+        <div className="dailysummaryouter">
+            <h5>Hi, Perla      
+            Calories Consumed Today: {totalCalories}</h5>
+            
 
-                    </Col>
-                </Row>
-            </Container>
+                    
         </div>
     )
 }

@@ -41,7 +41,8 @@ const RecipesParent = () => {
   } = meal;
 
   return (
-    <>
+      <>
+          
       <Card className="randomrecipe-card">
         <CardTitle className="cardtitle-recipe" tag="h6">
           <strong>{strMeal}</strong>
