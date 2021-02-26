@@ -52,11 +52,10 @@ console.log(props.userId)
     return (
         <Container>
             <Row>    
-                <DailySummary token={props.token} />
+                <DailySummary token={props.token} userId={props.userId}/>
                 
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
                 
-                <DailySummary token={props.token} userId={props.userId}/>
 
                 <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token} userId={props.userId}/>
                 
