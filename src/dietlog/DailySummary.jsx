@@ -5,12 +5,9 @@ const DailySummary = (props) => {
     const [totalCalories, setTotalCalories] = useState(0);
     var total = 0
     var today = new Date().toLocaleDateString();
-    // var today = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})
     today = new Date(today).toISOString().slice(0,10);
-    console.log(today)
     let dateSelected = today
-    let id = 3
-        fetch(`http://localhost:3000/dietlog/${dateSelected}/${id}`, {
+        fetch(`http://localhost:3000/dietlog/${dateSelected}/${props.getId}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -26,11 +23,15 @@ const DailySummary = (props) => {
             setTotalCalories(total)
         })     
 
+
     return (
         <div className="dailysummaryouter">
             <h5>Hi, Perla      
             Calories Consumed Today: {totalCalories}</h5>
             
+
+        
+        
 
                     
         </div>

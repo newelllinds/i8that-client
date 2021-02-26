@@ -6,11 +6,13 @@ import logo from './images/i8logo-01.jpg'
 import DietlogIndex from './dietlog/DietlogIndex'
 import Auth from './Auth/Auth';
 import Sitebar from './home/Navbar';
+import Login from './Auth/Login';
 
 
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
+  const [userId, setUserId] = useState('');
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -28,8 +30,19 @@ function App() {
     setSessionToken('');
   }
 
+  /// trying to pass id 
+  const getId = (id) => {
+    setUserId(id);
+  }
+
+    //     .then((json) => {
+    //       // setUserID(user.id)
+    //       console.log(json.user.id)
+    //     })
+    // }
+
   const protectedViews = () => {
-  return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} /> : <Auth updateToken={updateToken} />)
+  return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId}/> : <Auth updateToken={updateToken} getId={getId}/>)
   }
   
   
@@ -55,6 +68,7 @@ function App() {
       <Sitebar clearToken={clearToken}/>
       
       {protectedViews()}
+
 <div className="footer">I8That Copyright &copy;2021</div>
     </div>
 

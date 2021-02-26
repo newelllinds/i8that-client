@@ -6,6 +6,7 @@ import DietLogEdit from './DietLogEdit'
 import DietlogFetchCal from './DietlogFetchCal'
 import DailySummary from './DailySummary'
 import RecipesParent from '../recipes/RecipesParent';
+import DietlogGetByDate from './DietlogGetByDate';
 
 
 
@@ -47,7 +48,7 @@ const DietlogIndex = (props) => {
         fetchDietlogs();
     },[])
 
-
+console.log(props.userId)
     return (
         <Container>
             <Row>    
@@ -55,7 +56,9 @@ const DietlogIndex = (props) => {
                 
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
                 
-                
+                <DailySummary token={props.token} userId={props.userId}/>
+
+                <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token} userId={props.userId}/>
                 
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
@@ -78,6 +81,7 @@ const DietlogIndex = (props) => {
                 
                 </div>
                 
+
 
 
 
