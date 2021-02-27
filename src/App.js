@@ -7,7 +7,6 @@ import DietlogIndex from './dietlog/DietlogIndex'
 import Auth from './Auth/Auth';
 import Sitebar from './home/Navbar';
 
-
 function App() {
   const [sessionToken, setSessionToken] = useState('');
   const [userId, setUserId] = useState('');
@@ -29,7 +28,15 @@ function App() {
   }
 
   /// trying to pass id 
+
+  useEffect(() => {
+    if (localStorage.getItem('userId')) {
+      setUserId(localStorage.getItem('userId'));
+    }
+  }, [])
+
   const setId = (id) => {
+    localStorage.setItem('userId', id)
     setUserId(id);
   }
 

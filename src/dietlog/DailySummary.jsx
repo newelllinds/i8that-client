@@ -8,7 +8,7 @@ const DailySummary = (props) => {
     today = new Date(today).toISOString().slice(0,10);
     console.log(props.userId);
     let dateSelected = today
-        fetch(`http://localhost:3000/dietlog/${dateSelected}/${props.getId}`, {
+        fetch(`http://localhost:3000/dietlog/${dateSelected}/${props.userId}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
