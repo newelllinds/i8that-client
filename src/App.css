@@ -52,17 +52,16 @@
   margin-bottom: 60px;
 }
 
-.footer {
-  position: static;
-  bottom: 0;
-  height: 40px;
+.footer4us {
+ height: 40px;
   width: 100%;
   background-color: orange;
-  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 18px;
+  margin: auto;
 }
 
 .logout {
@@ -87,6 +86,7 @@ border-radius: 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 150px;
 }
 
 .login{
@@ -362,6 +362,7 @@ table td {
   border-radius: 20px;
   padding: 20px;
   margin-top: -9px;
+  margin-bottom: 100px;
 
 }
 
@@ -392,10 +393,40 @@ h6{
 }
 
 .dailysummaryouter{
-  width: 80%;
-  background-color:lightblue;
-  margin: auto;
+  width: 82% !important;
+  opacity: 100% !important;
+  border-radius: 15px !important;
+  padding: 10px !important;
+  padding-top: 20px !important;
+  background-color: #fafafa;
+  
+  
+
 }
+
+.dailysummaryparent{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dailysent1{
+  width: 80%;
+  margin-bottom: 60px;
+}
+
+.userName{
+  color: darkorange;
+}
+
+
+
+
+
+
+
 
 
 
