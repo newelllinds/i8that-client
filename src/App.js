@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import bgimage from './images/headerimage.jpg'
-import { Jumbotron } from 'reactstrap';
-import logo from './images/i8logo-01.jpg'
 import DietlogIndex from './dietlog/DietlogIndex'
 import Auth from './Auth/Auth';
 import Sitebar from './home/Navbar';
 import Login from './Auth/Login';
+import Footer from './home/Footer';
+import Header from './home/Header';
 
 
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
   const [userId, setUserId] = useState('');
+  const [username, setUsername] = useState('')
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -30,6 +30,10 @@ function App() {
     setSessionToken('');
   }
 
+  const getUsername = (username) => {
+    setUsername(username);
+  }
+
   /// trying to pass id 
   const getId = (id) => {
     setUserId(id);
@@ -42,35 +46,21 @@ function App() {
     // }
 
   const protectedViews = () => {
-  return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId}/> : <Auth updateToken={updateToken} getId={getId}/>)
+    return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId} username={username}/> : <Auth updateToken={updateToken} getId={getId} getUsername={getUsername}/>)
   }
   
   
   return (
     <div className="container">
-      <Jumbotron className="jumbotron" style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover' }}>
-      </Jumbotron>
-      <div className="bar"></div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}>
-        <img className="logo" src={logo} alt="logo" />
-        
-      </div>
-      <hr />
-      <h4 className="text-center">Welcome to I8That premier food log!</h4>
       
-      <hr />
-
+      <Header />
       <Sitebar clearToken={clearToken}/>
-      
       {protectedViews()}
-
-<div className="footer">I8That Copyright &copy;2021</div>
+      <Footer />
+    
     </div>
+
+    
 
   );
 }

@@ -20,6 +20,8 @@ const Signup = (props) => {
             console.log(data.user.username);
             console.log(data);
             props.getId(data.user.id);
+            props.getUsername(data.user.username)
+
 
         })
     }
