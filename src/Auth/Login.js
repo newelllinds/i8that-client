@@ -17,7 +17,7 @@ const Login = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.sessionToken);
-            props.getId(data.user.id);
+            props.setId(data.user.id);
             props.getUsername(data.user.username)
         })
     }
