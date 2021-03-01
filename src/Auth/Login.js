@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {Form, FormGroup, Container, Button, Input, FormFeedback} from 'reactstrap';
+import {Form, FormGroup, Container, Button, Input} from 'reactstrap';
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
+  
     const handleSubmit = (event) => {
         event.preventDefault();
         fetch("http://localhost:3000/user/login", {
@@ -29,13 +29,11 @@ const Login = (props) => {
 
     function passwordOnChange(event){
         setPassword(event.target.value);
-    }
-
+}
     return(
         <Container className="auth-container">
-            <h3 className="header2">Login</h3>
+        <h3 className="header2">Login</h3>
         <h6 className="sent1">Login to use the I8That App.</h6>
-
         <Form className="input1" onSubmit={handleSubmit}>
         <FormGroup>
         <Input className="input2"

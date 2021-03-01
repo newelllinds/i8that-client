@@ -8,15 +8,22 @@ const Auth = (props) => {
     function handleToggle(){
     setShowLogin(!showLogin);
     }
+    
     return (
-        <div>
+        
         <Container className="auth-container" className="stylenav">
+<<<<<<< HEAD
+                {showLogin ? <Signup updateToken={props.updateToken} /> : <Login updateToken={props.updateToken} />
+                }
+    <div className="buttontoggle">
+        {showLogin ? <button className="login" onClick={handleToggle}>Login</button> : <button className="login" onClick={handleToggle}>Signup</button>}
+    </div>
+=======
                 {showLogin ? <Signup updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername}/> : <Login updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername}/>}
+>>>>>>> develop
 
-                
-          </Container> 
-            <h5 className="membertext">Already a member? <button className="login" onClick={handleToggle}>Login</button></h5>
-        </div>     
+     </Container>      
+            
     );
 };
 
