@@ -12,15 +12,13 @@ const Auth = (props) => {
     return (
         
         <Container className="auth-container" className="stylenav">
-<<<<<<< HEAD
-                {showLogin ? <Signup updateToken={props.updateToken} /> : <Login updateToken={props.updateToken} />
+
+                {showLogin ? <Signup updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername}/> : <Login updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername } />
                 }
+
     <div className="buttontoggle">
         {showLogin ? <button className="login" onClick={handleToggle}>Login</button> : <button className="login" onClick={handleToggle}>Signup</button>}
     </div>
-=======
-                {showLogin ? <Signup updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername}/> : <Login updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername}/>}
->>>>>>> develop
 
      </Container>      
             
