@@ -17,12 +17,10 @@ const Login = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.sessionToken);
-            let checkToken = data.sessionToken;
-            if (checkToken===undefined){
-                alert("Invalid Login");
-            }else {alert("You are logged in.")}
-    });
-}
+            props.getId(data.user.id);
+            props.getUsername(data.user.username)
+        })
+    }
 
     function usernameOnChange(event){
         console.log(event.target.value);

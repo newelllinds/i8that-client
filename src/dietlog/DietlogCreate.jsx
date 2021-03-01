@@ -26,7 +26,7 @@ const DietlogCreate = (props) => {
     const files = e.target.files
     const data = new FormData()
     data.append('file', files[0])
-    data.append('upload_preset', 'truimagesnow')
+    data.append('upload_preset', 'i8that-image')
     setLoading(true)
     const res = await fetch(
       'https://api.cloudinary.com/v1_1/dnesqlk9j/image/upload',
@@ -87,8 +87,10 @@ const DietlogCreate = (props) => {
               <Input
                 type="date"
                 name="date_eaten"
+                required="required"
                 value={date_eaten}
-                onChange={(e) => setDate_Eaten(e.target.value)}
+                onChange={(e) => setDate_Eaten(e.target.value)
+                }
               />
             </FormGroup>
           </Col>
@@ -101,10 +103,11 @@ const DietlogCreate = (props) => {
               <Input
                 type="select"
                 name="where_eaten"
+                required="required"
                 value={where_eaten}
                 onChange={(e) => setWhere_Eaten(e.target.value)}
               >
-                <option >Choose a value</option>
+                <option value="">Choose a value</option>
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Dinner">Dinner</option>
@@ -136,9 +139,13 @@ const DietlogCreate = (props) => {
               <Input
                 type="file"
                 name="file"
-                value={image}
                 onChange={uploadImage}
               />
+              {loading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <img src={image} style={{ width: '100px' }} />
+      )}
               <FormText color="muted">Submit image of your food.</FormText>
             </FormGroup>
           </Col>

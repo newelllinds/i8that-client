@@ -4,12 +4,11 @@ import { Table, Button, Container, Row, Col, Alert } from 'reactstrap';
 const DailySummary = (props) => {
     const [totalCalories, setTotalCalories] = useState(0);
     var total = 0
-    var today = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})
-    today = new Date(today).toISOString().slice(0,10);
-    console.log(today)
+    var today = new Date().toLocaleDateString();
+    today = new Date(today).toISOString().slice(0, 10);
+    console.log(props.getId)
     let dateSelected = today
-    let id = 3
-        fetch(`http://localhost:3000/dietlog/${dateSelected}/${id}`, {
+        fetch(`http://localhost:3000/dietlog/${dateSelected}/${props.getId}`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -25,19 +24,23 @@ const DailySummary = (props) => {
             setTotalCalories(total)
         })     
 
-    return (
-        <div className="table">
-            <Container>
-                <Row>
-                    <Col>
-                    
-            <h3>Calories Consumed Today</h3>
-            {totalCalories}
 
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+    return (
+        <Container className="dailysummaryparent">
+            <Row className="dailysummaryouter border">
+                <Col xs="6">
+                <h5>Hi <strong className="userName"><i>{props.username}</i></strong>!  </h5>    
+                </Col>
+                
+                <Col xs="6" className="text-md-right"><h5>Total calories consumed today: {totalCalories}</h5></Col>
+
+            </Row>
+            <Row className="dailysent1">
+        <i><h6>Fill out your daily I8That log below for today's date to update your total calories consumed.</h6></i>
+                 </Row>
+            
+                    
+        </Container>
     )
 }
 

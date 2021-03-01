@@ -5,6 +5,8 @@ import DietlogTable from './DietlogTable'
 import DietLogEdit from './DietLogEdit'
 import DietlogFetchCal from './DietlogFetchCal'
 import DailySummary from './DailySummary'
+import RecipesParent from '../recipes/RecipesParent';
+import DietlogGetByDate from './DietlogGetByDate';
 
 
 
@@ -46,18 +48,39 @@ const DietlogIndex = (props) => {
         fetchDietlogs();
     },[])
 
-
+console.log(props.userId)
     return (
         <Container>
-            <Row>                
+            <Row>    
+                <DailySummary token={props.token} userId={props.userId} username={props.username}/>
+                
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
                 
-                <DailySummary token={props.token}/>
+
+                <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token} userId={props.userId}/>
                 
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
                 
                 
+                <div className="tiredsentence"><h4><i>Tired of eating the same thing? Consider the daily recipes below!</i></h4></div>
+                
+                <div className="outerrandomrecipe-card">
+                    <Row>
+                        <Col>
+                        <RecipesParent />
+                        </Col>
+                        <Col>
+                        <RecipesParent />
+                        </Col>
+                        <Col>
+                        <RecipesParent />
+                        </Col>
+                    </Row>
+                
+                </div>
+                
+
 
 
 
