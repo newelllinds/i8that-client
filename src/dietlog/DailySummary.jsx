@@ -7,6 +7,7 @@ const DailySummary = (props) => {
     var today = new Date().toLocaleDateString();
     today = new Date(today).toISOString().slice(0,10);
     console.log(props.userId);
+
     let dateSelected = today
         fetch(`http://localhost:3000/dietlog/${dateSelected}/${props.userId}`, {
             method: 'GET',
@@ -23,20 +24,24 @@ const DailySummary = (props) => {
             })
             setTotalCalories(total)
         })     
-        
-        return (
-        <div className="table">
-            <Container>
-                <Row>
-                    <Col>
-                    
-            <h3>Calories Consumed Today</h3>
-            {totalCalories}
 
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+
+    return (
+        <Container className="dailysummaryparent">
+            <Row className="dailysummaryouter border">
+                <Col xs="6">
+                <h5>Hi <strong className="userName"><i>{props.username}</i></strong>!  </h5>    
+                </Col>
+                
+                <Col xs="6" className="text-md-right"><h5>Total calories consumed today: {totalCalories}</h5></Col>
+
+            </Row>
+            <Row className="dailysent1">
+        <i><h6>Fill out your daily I8That log below for today's date to update your total calories consumed.</h6></i>
+                 </Row>
+            
+                    
+        </Container>
     )
 }
 

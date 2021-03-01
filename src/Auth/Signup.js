@@ -17,10 +17,14 @@ const Signup = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.sessionToken);
+            console.log(data.user.username);
             console.log(data);
             props.setId(data.user.id)
+            props.getUsername(data.user.username)
         })
     }
+
+    
 
     function usernameOnChange(event){
         console.log(event.target.value);
