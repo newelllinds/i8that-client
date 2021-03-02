@@ -6,6 +6,10 @@ import Sitebar from './home/Navbar';
 import Login from './Auth/Login';
 import Footer from './home/Footer';
 import Header from './home/Header';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
+
 
 function App() {
   const [sessionToken, setSessionToken] = useState('');
@@ -54,7 +58,9 @@ function App() {
     <div className="container">
       
       <Header />
-      <Sitebar clearToken={clearToken}/>
+      <Router>
+        <Sitebar clearToken={clearToken} />
+      </Router>
       {protectedViews()}
       <Footer />
     
