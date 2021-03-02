@@ -22,7 +22,7 @@ const DietlogGetByDate = (props) => {
                 value={date_eaten}
                 onChange={handleUserDateInput}
               />
-              <DietlogGetByDateFetch date_eaten={date_eaten} userId={props.userId} token={props.token}/>
+              <DietlogGetByDateFetch date_eaten={date_eaten} userId={props.userId} token={props.token} editUpdateDietLog={props.editUpdateDietLog} updateOn={props.updateOn}/>
         </div>
     )
 }

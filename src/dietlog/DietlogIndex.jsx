@@ -58,7 +58,7 @@ console.log(props.userId)
                 <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
                 
 
-                <DietlogGetByDate token={props.token} userId={props.userId}/>
+                <DietlogGetByDate token={props.token} userId={props.userId} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn}/>
                 
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
