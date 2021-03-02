@@ -72,29 +72,7 @@ const RecipesParent = () => {
         </CardBody>
       </Card>
 
-      {/* <div className="recipe-header">
-            <div className="cardtop"><strong>{strMeal}</strong></div>
-        <div className="meal">
-            <div className="meal-img">
-                <img src={strMealThumb} alt={strMeal}/>
-            </div>
-            <div className="meal-details">
-                <p className="instructions">{strInstructions}</p>
-                <ul className="meal-info">
-                    <li>
-                        Category:
-                         <strong>{strCategory}</strong>
-                    </li>
-                    <li>
-                        Area:
-                         <strong>{strArea}</strong>
-                    </li>
-                        </ul>
-                        
-                        <button type="submit" onSubmit={strSource}>Click for full ingredient list</button>
-            </div>
-            </div>
-            </div> */}
+      
     </>
   );
 };

@@ -13,7 +13,7 @@ const Auth = (props) => {
         
         <Container className="auth-container" className="stylenav">
 
-                {showLogin ? <Signup updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername}/> : <Login updateToken={props.updateToken} getId={props.getId} getUsername={props.getUsername } />
+                {showLogin ? <Signup updateToken={props.updateToken} setId={props.setId} getUsername={props.getUsername}/> : <Login updateToken={props.updateToken} setId={props.setId} getUsername={props.getUsername } />
                 }
 
     <div className="buttontoggle">

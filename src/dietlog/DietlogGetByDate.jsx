@@ -1,48 +1,28 @@
 import React, {useState} from 'react';
 import {
-    Button,
-    Form,
-    FormGroup,
-    Label,
     Input,
-    Container,
-    Row,
-    Col,
-    FormText,
-    Table,
   } from "reactstrap";
+  import DietlogGetByDateFetch from './DietlogGetByDateFetch'
 
 const DietlogGetByDate = (props) => {
-    const [resultsByDate, setResultsByDate] = useState([])
-    let id = 2;
-    let date_eaten = '2021-02-23'
+    const [date_eaten, setDate_Eaten] = useState("");
 
-    function fetchDietlogsByDate()  {
-        fetch(`http://localhost:3000/dietlog/${date_eaten}/${props.userId}`, {
-            headers: new Headers ({
-                'Authorization': props.token
-            })
-        })
-            .then((response) => response.json())
-            .then((json) => {
-                setResultsByDate(json);
-                console.log(json);
-                // props.fetchDietlogs()
-            });
+    const handleUserDateInput = (e) => {
+        const userDateInput = e.target.value;
+        setDate_Eaten(userDateInput);
     }
 
     return(
         <div className="table">
-            <Container>
-                <Row>
-                    <Col>
-                    
-            <h3>This is Get By Date</h3>
-            <Button onClick={fetchDietlogsByDate}>Get Today's Logs</Button>
-
-                    </Col>
-                </Row>
-            </Container>
+            <h3>Get Your Dietlogs By Date</h3>
+            <Input
+                type="date"
+                name="date_eaten"
+                required="required"
+                value={date_eaten}
+                onChange={handleUserDateInput}
+              />
+              <DietlogGetByDateFetch date_eaten={date_eaten} userId={props.userId} token={props.token} editUpdateDietLog={props.editUpdateDietLog} updateOn={props.updateOn}/>
         </div>
     )
 }

@@ -6,7 +6,9 @@ import Sitebar from './home/Navbar';
 import Login from './Auth/Login';
 import Footer from './home/Footer';
 import Header from './home/Header';
-
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
 
 function App() {
@@ -35,18 +37,20 @@ function App() {
   }
 
   /// trying to pass id 
-  const getId = (id) => {
+
+  useEffect(() => {
+    if (localStorage.getItem('userId')) {
+      setUserId(localStorage.getItem('userId'));
+    }
+  }, [])
+
+  const setId = (id) => {
+    localStorage.setItem('userId', id)
     setUserId(id);
   }
 
-    //     .then((json) => {
-    //       // setUserID(user.id)
-    //       console.log(json.user.id)
-    //     })
-    // }
-
   const protectedViews = () => {
-    return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId} username={username}/> : <Auth updateToken={updateToken} getId={getId} getUsername={getUsername}/>)
+    return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId} username={username}/> : <Auth updateToken={updateToken} setId={setId} getUsername={getUsername}/>)
   }
   
   
@@ -54,7 +58,9 @@ function App() {
     <div className="container">
       
       <Header />
-      <Sitebar clearToken={clearToken}/>
+      <Router>
+        <Sitebar clearToken={clearToken} />
+      </Router>
       {protectedViews()}
       <Footer />
     

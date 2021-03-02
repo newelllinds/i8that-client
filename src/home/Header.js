@@ -21,7 +21,7 @@ const Header = () => {
       <hr />
       <h4 className="text-center">Welcome to I8That premier food log!</h4>
       
-                <hr />
+                
                 </div>
         
     );

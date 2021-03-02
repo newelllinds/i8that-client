@@ -1,10 +1,24 @@
-import React from 'react';
-import { Table, Button, Container, Row, Col, Alert } from 'reactstrap';
-import headerimagecopy from '../images/headerimagecopy.jpg'
+import React, { useState, useEffect } from 'react';
+import {Button, Table, Container, Row, Col} from 'reactstrap';
+import DietLogEdit from './DietLogEdit'
 
-//Add alert saying "Diet Log has been deleted!"
 
-const DietlogTable = (props) => {
+const DietlogGetByDateTable = (props) => {
+    const [updateActive, setUpdateActive] = useState(false);
+    const [dietlogToUpdate, setDietlogToUpdate] = useState({});
+
+    const editUpdateDietlog = (dietlog) => {
+        setDietlogToUpdate(dietlog);
+        console.log(dietlog);
+    }
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
 
     const deleteDietlog = (dietlog) => {
         fetch(`http://localhost:3000/dietlog/delete/${dietlog.id}`, {
@@ -13,12 +27,11 @@ const DietlogTable = (props) => {
                 'Content-Type': 'application/json',
                 'Authorization': props.token
             })
-        }).then(() => props.fetchDietlogs())
+        }).then(() => props.fetchDietlogsByDate())
         
     }
-
     const dietlogMapper = () => {
-        return props.dietlogs.map((dietlog, index) => {
+        return props.resultsByDate.map((dietlog, index) => {
             return (
                 <tr key={index}>
                     <th className="id" scope="row">{dietlog.id}</th>
@@ -31,8 +44,8 @@ const DietlogTable = (props) => {
                     <td>
                         <Button
                             className="updatebtn1"
-                            onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button>
-                        <Button className="deletebtn1" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
+                            onClick={() => { editUpdateDietlog(dietlog); updateOn() }}>Update</Button>
+                             <Button className="deletebtn1" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
                     </td>
 
                     
@@ -42,9 +55,9 @@ const DietlogTable = (props) => {
     }
 
     return (
-        <div className="outerdietlog" id="foodlogtable">
+        <div className="outerdietlog">
             <div className="jumbotron2" style={{ backgroundColor: 'orange'}}>
-            <h3 className="yourheader">Your Diet Log</h3></div>
+            <h3 className="yourheader">Your Dietlogs for {props.date_eaten}</h3></div>
             <Container className="table1">
                 <Row>
                     <Col>
@@ -71,8 +84,9 @@ const DietlogTable = (props) => {
                     </Col>
                 </Row>
             </Container>
+            {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={props.fetchDietlogsByDate}/> : <></>}
             </div>
     )
 }
-
-export default DietlogTable;
+ 
+export default DietlogGetByDateTable;
