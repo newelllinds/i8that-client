@@ -51,7 +51,7 @@ const DietLogEdit = (props) => {
 
     return(
         <Modal isOpen={true}>
-            <ModalHeader>Log a Meal</ModalHeader>
+            <ModalHeader closeButton>Log a Meal</ModalHeader>
             <ModalBody>
                 <Form onSubmit={dietLogUpdate}>
                     <FormGroup>
@@ -87,9 +87,9 @@ const DietLogEdit = (props) => {
       ) : (
         <img src={editImage} style={{ width: '100px' }} />
       )}
-                        {/* <Button type="submit">Upload New Image</Button> */}
                     </FormGroup>
-                    <Button type="submit">Update the Diet Log!</Button>
+                    <Button className="ModalEditButton" type="close">Close Without Editing</Button>
+                    <Button className="ModalEditButton" type="submit">Update the Diet Log!</Button>
                 </Form>
             </ModalBody>
         </Modal>

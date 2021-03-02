@@ -8,6 +8,7 @@ import DailySummary from './DailySummary'
 import RecipesParent from '../recipes/RecipesParent';
 import DietlogGetByDate from './DietlogGetByDate';
 import Sitebar from '../home/Navbar'
+import DietlogGetByDateFetch from './DietlogGetByDateFetch';
 
 
 
@@ -58,7 +59,7 @@ console.log(props.userId)
                 <DietlogFetchCal  fetchDietlogs={fetchDietlogs} token={props.token} />
                 
 
-                <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token} userId={props.userId}/>
+                <DietlogGetByDate token={props.token} userId={props.userId} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn}/>
                 
                 <DietlogTable dietlogs={dietlogs} editUpdateDietlog={editUpdateDietlog} updateOn={updateOn} fetchDietlogs={fetchDietlogs} token={props.token} />
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}

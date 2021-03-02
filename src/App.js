@@ -11,8 +11,6 @@ import {
 } from 'react-router-dom';
 
 
-
-
 function App() {
   const [sessionToken, setSessionToken] = useState('');
   const [userId, setUserId] = useState('');
@@ -39,18 +37,20 @@ function App() {
   }
 
   /// trying to pass id 
-  const getId = (id) => {
+
+  useEffect(() => {
+    if (localStorage.getItem('userId')) {
+      setUserId(localStorage.getItem('userId'));
+    }
+  }, [])
+
+  const setId = (id) => {
+    localStorage.setItem('userId', id)
     setUserId(id);
   }
 
-    //     .then((json) => {
-    //       // setUserID(user.id)
-    //       console.log(json.user.id)
-    //     })
-    // }
-
   const protectedViews = () => {
-    return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId} username={username}/> : <Auth updateToken={updateToken} getId={getId} getUsername={getUsername}/>)
+    return (sessionToken === localStorage.getItem('token') ? <DietlogIndex token={sessionToken} userId={userId} username={username}/> : <Auth updateToken={updateToken} setId={setId} getUsername={getUsername}/>)
   }
   
   
