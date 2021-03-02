@@ -53,7 +53,7 @@
 }
 
 .footer4us {
- height: 40px;
+  height: 40px;
   width: 100%;
   background-color: orange;
   display: flex;
@@ -71,13 +71,13 @@
   width: 130px;
 }
 
-.stylenav{
-width: 400px !important;
-height: 320px;
-background-color:#e4e9f5;  
-padding-top: 30px;  
-margin-bottom: 30px;
-border-radius: 20px;
+.stylenav {
+  width: 400px !important;
+  height: 320px;
+  background-color: #e4e9f5;
+  padding-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
 }
 
 .buttontoggle {
@@ -89,14 +89,14 @@ border-radius: 20px;
   margin-bottom: 150px;
 }
 
-.login{
-background-color: #e4e9f5 !important; 
-border-radius: 4px;
-color: black !important;
-width: 135px;
-height: 39px;
-margin-top: 70px;
-border-style: hidden;
+.login {
+  background-color: #e4e9f5 !important;
+  border-radius: 4px;
+  color: black !important;
+  width: 135px;
+  height: 39px;
+  margin-top: 70px;
+  border-style: hidden;
 }
 
 .auth-container {
@@ -160,53 +160,51 @@ border-style: hidden;
   margin: auto;
 }
 
-.header2{
+.header2 {
   font-size: 38px;
-  color:#05324c;
+  color: #05324c;
 }
 
-.loginform{
+.loginform {
   margin-top: 20px;
-  margin:auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.input1{
+.input1 {
   margin-top: 20px;
-  margin:auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.btnsubmit{
+.btnsubmit {
   width: 130px !important;
-  background-color: orange !important; 
-color: black !important;
-width: 135px;
-height: 39px;
-border-radius: 4px;
-margin-top: 10px;
-font-size: 20px !important;
-border-style: hidden !important;
-
-
+  background-color: orange !important;
+  color: black !important;
+  width: 135px;
+  height: 39px;
+  border-radius: 4px;
+  margin-top: 10px;
+  font-size: 20px !important;
+  border-style: hidden !important;
 }
 
-.sent1{
+.sent1 {
   margin-bottom: 20px;
 }
 
-.input2{
+.input2 {
   width: 250px;
   height: 38px;
 }
 
-.outerdietlog{
+.outerdietlog {
   width: 84%;
   margin: auto;
   margin-bottom: 200px;
@@ -216,31 +214,28 @@ table td {
   vertical-align: middle !important;
 }
 
-.id{
+.id {
   vertical-align: middle !important;
-  color:darkorange;
+  color: darkorange;
 }
 
-.updatebtn1{
+.updatebtn1 {
   width: 100px !important;
   margin-right: 10px;
   color: black !important;
   background-color: orange !important;
   border-style: hidden !important;
-
-
 }
 
-.deletebtn1{
+.deletebtn1 {
   width: 100px !important;
   margin-right: 5px;
   color: white !important;
   background-color: #05324c !important;
   border-style: hidden !important;
-
 }
 
-.jumbotron2{
+.jumbotron2 {
   width: 96%;
   height: 100px;
   margin: auto;
@@ -249,43 +244,40 @@ table td {
   justify-content: center;
   align-items: center;
   border-radius: 15px 15px 0px 0px;
-  font-weight:bold;
+  font-weight: bold;
 }
 
-.yourheader{
+.yourheader {
   margin: auto !important;
 }
 
-.table1{
+.table1 {
   margin-top: -15px;
 }
 
-.recipe-header{
+.recipe-header {
   margin: auto;
-  background-color: white;  
+  background-color: white;
   width: 82%;
   margin-bottom: 20px;
-  
 }
 
-.meal{
-  display:flex;
+.meal {
+  display: flex;
   width: 100%;
   margin: auto;
   background-color: #e4e9f5;
   padding: 30px 20px 35px 20px;
   color: #05324c;
   border-radius: 15px;
-  
 }
 
-.meal-img{
+.meal-img {
   flex: 1;
   margin-top: 5px;
-
 }
 
-.meal-img img{
+.meal-img img {
   max-width: 80%;
   border-radius: 15px;
   margin-left: 10px;
@@ -296,15 +288,14 @@ table td {
 .meal-details {
   flex: 3;
   font-size: 14px;
-  padding-right:30px;
-
+  padding-right: 30px;
 }
 
-.tired-header{
+.tired-header {
   margin-bottom: 20px;
 }
 
-.cardtop{
+.cardtop {
   width: 37%;
   height: 70px;
   background-color: #e4e9f5;
@@ -315,96 +306,87 @@ table td {
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  color:#05324c;
-
+  color: #05324c;
 }
 
-
-.tiredsentence{
+.tiredsentence {
   margin: auto;
   margin-bottom: 20px;
-  color:darkorange;
+  color: darkorange;
 }
 
-.meal-info{
+.meal-info {
   display: flex;
   list-style-type: none;
   padding: 0;
 }
 
-.meal-info li{
-  color:black;
+.meal-info li {
+  color: black;
   font-size: 14px;
   margin-right: 30px;
 }
 
 .meal-info li strong {
-  color:#05324c;
+  color: #05324c;
   font-size: 15px;
   display: block;
 }
 
-.randomrecipe-card{
+.randomrecipe-card {
   width: 100%;
-    border: 0px !important;
-
-  
+  border: 0px !important;
 }
 
-.outerrandomrecipe-card{
+.outerrandomrecipe-card {
   background-color: #fff8e3;
   margin: auto;
   width: 82%;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   border-radius: 20px;
   padding: 20px;
   margin-top: -9px;
   margin-bottom: 100px;
-
 }
 
-.cardtitle-recipe{
+.cardtitle-recipe {
   height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:#05324c;
+  background-color: #05324c;
   color: white;
   border-radius: 10px 10px 0px 0px;
-
 }
 
-h6{
+h6 {
   margin-bottom: -4px !important;
   font-size: 15px !important;
   padding: 10px;
-  text-align:center;
+  text-align: center;
 }
 
-.recipebtn{
+.recipebtn {
   width: 100% !important;
   color: black !important;
   background-color: orange !important;
   border-style: hidden !important;
 }
 
-.dailysummaryouter{
+.dailysummaryouter {
   width: 82% !important;
   opacity: 100% !important;
   border-radius: 15px !important;
   padding: 10px !important;
   padding-top: 20px !important;
   background-color: #fafafa;
-  
-  
-
 }
 
-.dailysummaryparent{
+.dailysummaryparent {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -412,26 +394,15 @@ h6{
   align-items: center;
 }
 
-.dailysent1{
+.dailysent1 {
   width: 80%;
   margin-bottom: 60px;
 }
 
-.userName{
+.userName {
   color: darkorange;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.ModalEditButton {
+  margin: 4%;
+}

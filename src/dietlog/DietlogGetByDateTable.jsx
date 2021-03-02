@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Button, Table, Container, Row, Col} from 'reactstrap';
+import DietLogEdit from './DietLogEdit'
+
 
 const DietlogGetByDateTable = (props) => {
+    const [updateActive, setUpdateActive] = useState(false);
+    const [dietlogToUpdate, setDietlogToUpdate] = useState({});
+
+    const editUpdateDietlog = (dietlog) => {
+        setDietlogToUpdate(dietlog);
+        console.log(dietlog);
+    }
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
 
     const deleteDietlog = (dietlog) => {
         fetch(`http://localhost:3000/dietlog/delete/${dietlog.id}`, {
@@ -25,9 +42,9 @@ const DietlogGetByDateTable = (props) => {
                     <td>{dietlog.feelings}</td>
                     <td><img src={dietlog.image} style={{ width: '100px' }} /></td>
                     <td>
-                        {/* <Button
+                        <Button
                             className="updatebtn1"
-                            onClick={() => { props.editUpdateDietlog(dietlog); props.updateOn() }}>Update</Button> */}
+                            onClick={() => { editUpdateDietlog(dietlog); updateOn() }}>Update</Button>
                              <Button className="deletebtn1" onClick={() => {deleteDietlog(dietlog)}}>Delete</Button>
                     </td>
 
@@ -67,6 +84,7 @@ const DietlogGetByDateTable = (props) => {
                     </Col>
                 </Row>
             </Container>
+            {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={props.fetchDietlogsByDate}/> : <></>}
             </div>
     )
 }
