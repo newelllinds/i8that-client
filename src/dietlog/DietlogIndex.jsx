@@ -7,6 +7,7 @@ import DietlogFetchCal from './DietlogFetchCal'
 import DailySummary from './DailySummary'
 import RecipesParent from '../recipes/RecipesParent';
 import DietlogGetByDate from './DietlogGetByDate';
+import Sitebar from '../home/Navbar'
 
 
 
@@ -54,7 +55,7 @@ console.log(props.userId)
             <Row>    
                 <DailySummary token={props.token} userId={props.userId} username={props.username}/>
                 
-                <DietlogFetchCal fetchDietlogs={fetchDietlogs} token={props.token} />
+                <DietlogFetchCal  fetchDietlogs={fetchDietlogs} token={props.token} />
                 
 
                 <DietlogGetByDate fetchDietlogs={fetchDietlogs} token={props.token} userId={props.userId}/>
@@ -63,9 +64,20 @@ console.log(props.userId)
                 {updateActive ? <DietLogEdit dietlogToUpdate={dietlogToUpdate} updateOff={updateOff} token={props.token} fetchDietlogs={fetchDietlogs}/> : <></>}
                 
                 
-                <div className="tiredsentence"><h4><i>Tired of eating the same thing? Consider the daily recipes below!</i></h4></div>
+                <div id="recipes" className="tiredsentence"><h4><i>Tired of eating the same thing? Consider the daily recipes below!</i></h4></div>
                 
                 <div className="outerrandomrecipe-card">
+                    <Row className="toprowrecipe">
+                        <Col>
+                        <RecipesParent />
+                        </Col>
+                        <Col>
+                        <RecipesParent />
+                        </Col>
+                        <Col>
+                        <RecipesParent />
+                        </Col>
+                    </Row>
                     <Row>
                         <Col>
                         <RecipesParent />

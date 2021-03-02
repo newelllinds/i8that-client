@@ -33,7 +33,7 @@ const DietlogFetchCal = (props) => {
    
         
     return (
-        <div className="tablecreate">
+        <div className="tablecreate" id="foodlog">
             <div className="innertcreate">
                 <Form onSubmit={fetchResults} >
                     <Row form>
