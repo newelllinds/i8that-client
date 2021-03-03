@@ -52,12 +52,13 @@ const Signup = (props) => {
         </FormGroup>
         <FormGroup>
          <Input className="input2"
-         type="text"
+         type="password"
          placeholder="Password"
          pattern = "^(?=^.{4,}$).*$"
          title="Password should be 5 or more characters"
          required
          value= {password}
+         name="password"
          onChange={(e) => passwordOnChange(e)}/>
          </FormGroup>
          <Button className="btnsubmit" type="submit">Signup</Button>
