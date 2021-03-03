@@ -12,9 +12,10 @@ const DietlogGetByDate = (props) => {
         setDate_Eaten(userDateInput);
     }
 
-    return(
-        <div className="table">
-            <h3>Get Your Dietlogs By Date</h3>
+    return (
+        <div className="dietlogdate">
+        <div className="table" id="getdietlogtable">
+            <h3 className="alignheader">Get Your Dietlogs By Date</h3>
             <Input
                 type="date"
                 name="date_eaten"
@@ -23,6 +24,7 @@ const DietlogGetByDate = (props) => {
                 onChange={handleUserDateInput}
               />
               <DietlogGetByDateFetch date_eaten={date_eaten} userId={props.userId} token={props.token} editUpdateDietLog={props.editUpdateDietLog} updateOn={props.updateOn}/>
+            </div>
         </div>
     )
 }

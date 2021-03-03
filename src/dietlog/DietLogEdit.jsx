@@ -88,8 +88,12 @@ const DietLogEdit = (props) => {
         <img src={editImage} style={{ width: '100px' }} />
       )}
                     </FormGroup>
-                    <Button className="ModalEditButton" type="close">Close Without Editing</Button>
-                    <Button className="ModalEditButton" type="submit">Update the Diet Log!</Button>
+                    <Button 
+                        className="modaleditbtn"
+                        type="close">Close Without Editing</Button>
+                    <Button 
+                        className="modaleditbtn1"
+                        type="submit">Update the Diet Log!</Button>
                 </Form>
             </ModalBody>
         </Modal>

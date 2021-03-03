@@ -33,7 +33,7 @@ const DailySummary = (props) => {
                 <h5>Hi <strong className="userName"><i>{props.username}</i></strong>!  </h5>    
                 </Col>
                 
-                <Col xs="6" className="text-md-right"><h5>Total calories consumed today: {totalCalories}</h5></Col>
+                <Col xs="6" className="text-md-right"><h5>Total Calories Consumed Today: {totalCalories}</h5></Col>
 
             </Row>
             <Row className="dailysent1">

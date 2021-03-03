@@ -24,7 +24,7 @@ const DietlogGetByDateFetch = (props) => {
 
     return(
         <div className="table">
-                        <Button onClick={()=>fetchDietlogsByDate(props.date_eaten)}>Get Logs By Date</Button>
+                        <Button className="getbybtn" onClick={()=>fetchDietlogsByDate(props.date_eaten)}>Get Logs By Date</Button>
             {showTable==true ? <DietlogGetByDateTable resultsByDate={resultsByDate} editUpdateDietLog={props.editUpdateDietLog} date_eaten={props.date_eaten} fetchDietlogsByDate={fetchDietlogsByDate} token={props.token} updateOn={props.updateOn}/> : null}
         </div>
     )
