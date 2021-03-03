@@ -44,7 +44,7 @@ const DietlogTable = (props) => {
     return (
         <div className="outerdietlog" id="foodlogtable">
             <div className="jumbotron2" style={{ backgroundColor: 'orange'}}>
-            <h3 className="yourheader">Your Diet Log</h3></div>
+            <h3 className="yourheader">Your Dietlog</h3></div>
             <Container className="table1">
                 <Row>
                     <Col>

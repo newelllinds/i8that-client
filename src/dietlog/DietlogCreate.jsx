@@ -83,7 +83,7 @@ const DietlogCreate = (props) => {
           <Col md={6}>
                       <FormGroup>
                           <Label htmlFor="date_eaten">
-              <h6>Date Eaten</h6></Label>
+              <h6>Date Eaten:</h6></Label>
               <Input
                 type="date"
                 name="date_eaten"
@@ -98,7 +98,7 @@ const DietlogCreate = (props) => {
           <Col md={6}>
             <FormGroup>
               <Label htmlFor="where_eaten">
-                <h6>When Eaten</h6>
+                <h6>When Eaten:</h6>
               </Label>
               <Input
                 type="select"
@@ -122,7 +122,7 @@ const DietlogCreate = (props) => {
           <Col md="6">
             <FormGroup>
               <Label htmlFor="feelings">
-                <h6>Feelings</h6>
+                <h6>Feelings:</h6>
               </Label>
               <Input
                 name="feelings"
@@ -134,11 +134,12 @@ const DietlogCreate = (props) => {
           <Col md="6">
             <FormGroup>
               <Label htmlFor="image">
-                <h6>Upload Image</h6>
+                <h6>Upload Image:</h6>
               </Label>
               <Input
                 type="file"
                 name="file"
+                className="choosefilebtn"
                 onChange={uploadImage}
               />
               {loading ? (

@@ -35,8 +35,13 @@ const Sitebar = (props) => {
                 </NavLink>
               </NavItem>
               <NavItem>
+                <NavLink href="#getdietlogtable" className="linkcolor">
+                  Get Your Dietlog By Date
+                </NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="#foodlogtable" className="linkcolor">
-                  Your Diet Log
+                  Your Dietlog
                 </NavLink>
               </NavItem>
               <NavItem>

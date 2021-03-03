@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Form, FormGroup, Container, Button, Input} from 'reactstrap';
+import React, { useState } from "react";
+import { Form, FormGroup, Container, Button, Input } from "reactstrap";
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
@@ -32,35 +32,47 @@ const Login = (props) => {
         console.log(event.target.value);
         setUsername(event.target.value);
     }
+  
 
-    function passwordOnChange(event){
-        setPassword(event.target.value);
-}
-    return(
-        <Container className="auth-container">
-        <h3 className="header2">Login</h3>
-        <h6 className="sent1">Login to use the I8That App.</h6>
-        <Form className="input1" onSubmit={handleSubmit}>
+  function usernameOnChange(event) {
+    console.log(event.target.value);
+    setUsername(event.target.value);
+  }
+
+  function passwordOnChange(event) {
+    setPassword(event.target.value);
+  }
+  return (
+    <Container className="auth-container">
+      <h3 className="header2">Login</h3>
+      <h6 className="sent1">Login to use the I8That App.</h6>
+      <Form className="input1" onSubmit={handleSubmit}>
         <FormGroup>
-        <Input className="input2"
-         type="text"
-         placeholder="Username" 
-         required
-         value= {username}
-         onChange={(e) => usernameOnChange(e)}/>
+          <Input
+            className="input2"
+            type="text"
+            placeholder="Username"
+            required
+            value={username}
+            onChange={(e) => usernameOnChange(e)}
+          />
         </FormGroup>
         <FormGroup>
-         <Input className="input2"
-         type="password"
-         placeholder="Password"
-         required
-         value= {password}
-         onChange={(e) => passwordOnChange(e)}/>
-         </FormGroup>
-         <Button className="btnsubmit" type="submit">Login</Button>
-         </Form>
-        </Container>
-    )
-}
+          <Input
+            className="input2"
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={(e) => passwordOnChange(e)}
+          />
+        </FormGroup>
+        <Button className="btnsubmit" type="submit">
+          Login
+        </Button>
+      </Form>
+    </Container>
+  );
+};
 
 export default Login;
