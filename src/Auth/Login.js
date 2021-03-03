@@ -17,16 +17,17 @@ const Login = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.sessionToken);
-            props.setId(data.user.id);
-           props.getUsername(data.user.username)
             let checkToken = data.sessionToken;
             if (checkToken===undefined){
-                alert("Invalid Login");
-            }else {alert("You are logged in.")}
+            alert("Invalid Login");
+            return
+            } else {alert("You are logged in.")
+            } 
+            props.setId(data.user.id);
+            props.getUsername(data.user.username)
     });
 }
             
-
     function usernameOnChange(event){
         console.log(event.target.value);
         setUsername(event.target.value);
