@@ -17,6 +17,12 @@ const Signup = (props) => {
             (response) => response.json()
         ).then((data) => {
             props.updateToken(data.sessionToken);
+            let checkToken = data.sessionToken;
+            if (checkToken===undefined){
+            alert("Username already in use.");
+            return
+            } else {alert("You have successfully signed up!")
+            }
             console.log(data.user.username);
             console.log(data);
             props.setId(data.user.id)
@@ -24,7 +30,6 @@ const Signup = (props) => {
         })
     }
 
-    
 
     function usernameOnChange(event){
         console.log(event.target.value);
