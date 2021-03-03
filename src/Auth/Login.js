@@ -2,27 +2,37 @@ import React, { useState } from "react";
 import { Form, FormGroup, Container, Button, Input } from "reactstrap";
 
 const Login = (props) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    fetch("http://localhost:3000/user/login", {
-      method: "POST",
-      body: JSON.stringify({
-        user: { username: username, password: password },
-      }),
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        props.updateToken(data.sessionToken);
-        props.setId(data.user.id);
-        props.getUsername(data.user.username);
-      });
-  };
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+  
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetch("http://localhost:3000/user/login", {
+            method: 'POST',
+            body: JSON.stringify({user:{username: username, password: password}}),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        }).then(
+            (response) => response.json()
+        ).then((data) => {
+            props.updateToken(data.sessionToken);
+            let checkToken = data.sessionToken;
+            if (checkToken===undefined){
+            alert("Invalid Login");
+            return
+            } else {alert("You are logged in.")
+            } 
+            props.setId(data.user.id);
+            props.getUsername(data.user.username)
+    });
+}
+            
+    function usernameOnChange(event){
+        console.log(event.target.value);
+        setUsername(event.target.value);
+    }
+  
 
   function usernameOnChange(event) {
     console.log(event.target.value);
