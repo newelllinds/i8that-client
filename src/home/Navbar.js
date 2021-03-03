@@ -30,12 +30,17 @@ const Sitebar = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="navbar1" className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/dietlogcreate/">Food Log</NavLink>
+                <NavLink href="#foodlog">Log Food</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/dietlogindex/">Diet Log</NavLink>
+                <NavLink href="#foodlogtable">Diet Log</NavLink>
                 <NavItem>
-                  <NavLink href="/receipes/">Receipes</NavLink>
+                  <NavLink href="#recipes">Recipes</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#getdietlogtable">
+                    Get Your Diet Log By Date
+                  </NavLink>
                 </NavItem>
               </NavItem>
               <NavItem>
