@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Route, Link, Switch } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
@@ -19,39 +20,50 @@ const Sitebar = (props) => {
 
     const isLoggedIn = true;
   };
-  console.log(props.sessionToken);
+
   return (
-    <div>
+    <>
+      {" "}
       {props.token ? (
-        <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/">I8That</NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="navbar1" className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="#foodlog">Log Food</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#foodlogtable">Diet Log</NavLink>
+        <div className="outernav">
+          <Navbar light expand="md">
+            <NavbarBrand className="brandnav" href="/">
+              <strong>I8That</strong>
+            </NavbarBrand>
+            <NavbarToggler className="navtoggle" onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav>
                 <NavItem>
-                  <NavLink href="#recipes">Recipes</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="#getdietlogtable">
-                    Get Your Diet Log By Date
+                  <NavLink href="#foodlog" className="linkcolor">
+                    Log Your Food
                   </NavLink>
                 </NavItem>
-              </NavItem>
-              <NavItem>
-                <Button className="logout" onClick={props.clearToken}>
-                  Logout
-                </Button>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
+                <NavItem>
+                  <NavLink href="#getdietlogtable" className="linkcolor">
+                    Get Your Dietlog By Date
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#foodlogtable" className="linkcolor">
+                    Your Dietlog
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#recipes" className="linkcolor">
+                    Recipes
+                  </NavLink>
+                </NavItem>
+                <NavItem className="navitem">
+                  <Button className="logout" onClick={props.clearToken}>
+                    Logout
+                  </Button>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </Navbar>
+        </div>
       ) : null}
-    </div>
+    </>
   );
 };
 
