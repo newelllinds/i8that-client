@@ -19,10 +19,9 @@ const Sitebar = (props) => {
 
     const isLoggedIn = true;
   };
-
+  console.log(props.sessionToken);
   return (
     <div>
-      {" "}
       {props.token ? (
         <Navbar color="faded" light expand="md">
           <NavbarBrand href="/">I8That</NavbarBrand>
