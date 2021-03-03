@@ -65,7 +65,7 @@ function App() {
     <div className="container">
       <Header />
       <Router>
-        <Sitebar clearToken={clearToken} />
+        <Sitebar clearToken={clearToken} token={sessionToken} />
       </Router>
       {protectedViews()}
       <Footer />
