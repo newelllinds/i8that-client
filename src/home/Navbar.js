@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { Route, Link, Switch } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
   Collapse,
   NavbarToggler,
   Nav,
+  NavLink,
   NavItem,
   Button,
-  NavLink,
 } from "reactstrap";
 
 const Sitebar = (props) => {
@@ -17,39 +16,34 @@ const Sitebar = (props) => {
   const toggle = () => {
     let newIsOpen = !isOpen;
     setIsOpen(newIsOpen);
+
+    const isLoggedIn = true;
   };
 
   return (
-    <>
-      <div className="outernav">
-        <Navbar light expand="md">
-          <NavbarBrand className="brandnav" href="/">
-            <strong>I8That</strong>
-          </NavbarBrand>
-          <NavbarToggler className="navtoggle" onClick={toggle} />
+    <div>
+      {" "}
+      {props.token ? (
+        <Navbar color="faded" light expand="md">
+          <NavbarBrand href="/">I8That</NavbarBrand>
+          <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
-            <Nav>
+            <Nav className="navbar1" className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#foodlog" className="linkcolor">
-                  Log Your Food
-                </NavLink>
+                <NavLink href="#foodlog">Log Food</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#getdietlogtable" className="linkcolor">
-                  Get Your Dietlog By Date
-                </NavLink>
+                <NavLink href="#foodlogtable">Diet Log</NavLink>
+                <NavItem>
+                  <NavLink href="#recipes">Recipes</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#getdietlogtable">
+                    Get Your Diet Log By Date
+                  </NavLink>
+                </NavItem>
               </NavItem>
               <NavItem>
-                <NavLink href="#foodlogtable" className="linkcolor">
-                  Your Dietlog
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="#recipes" className="linkcolor">
-                  Recipes
-                </NavLink>
-              </NavItem>
-              <NavItem className="navitem">
                 <Button className="logout" onClick={props.clearToken}>
                   Logout
                 </Button>
@@ -57,17 +51,8 @@ const Sitebar = (props) => {
             </Nav>
           </Collapse>
         </Navbar>
-      </div>
-
-      {/* <div >
-                <Link to="/recipes/Recipes">Recipes</Link>
-
-            </div> */}
-
-      {/* <Switch>
-                    <Route exact path="/recipes/Recipes"><Recipes /></Route>
-                </Switch> */}
-    </>
+      ) : null}
+    </div>
   );
 };
 
